@@ -12,7 +12,7 @@
 		<view style="width: 100%;height: 80upx;"></view>
 		<!-- 滑动显示部分 -->
 		<view class="context">
-			<scroll-view  scroll-x="true" :scroll-into-view="scrid">
+			<scroll-view scroll-with-animation scroll-x="true" :scroll-into-view="scrid">
 				<view class="scroll_data" :id="'scroll'+index" v-for="(item,index) in slidingData" :key="index" @click="cliswiper(index)" >
 					<view :class="index==swipernum?'view':''">{{item.name}}</view>
 				</view>
@@ -56,10 +56,7 @@
 				}
 			},
 			toSeek(){ // 跳转至搜索页面
-				uni.navigateTo({
-					url:"../seek/seek"
-				})
-				console.log("aa")
+				uni.navigateTo({url:"../seek/seek"})
 			}
 		},
 		components:{ // 将组件模块化

@@ -33,7 +33,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	view,scroll-view,swiper,swiper-item{box-sizing: border-box;}
 	#main{margin: 0upx;}
 	.img{width: 100%;height: 100%;}

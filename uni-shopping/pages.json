@@ -3,11 +3,11 @@
 		{
 			"path": "pages/seek/seek",// 搜索
 			"style": {"navigationStyle":"custom"}
-		},
-		{
+		},{
 			"path": "pages/index/index",// 首页
 			"style": {"navigationStyle":"custom"}
 		},
+		
 		{
 			"path": "pages/carlist1/carlist" // 分类
 		},{

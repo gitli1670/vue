@@ -2,70 +2,63 @@
 	<view id="main">
 		<!-- 顶部搜索 -->
 		<seek-top @add="addSelect" />
-		<!-- 热门搜索 -->
-		<view class="hot">
-			<view>热门搜索</view>
-			<view><image /></view>
-			<view>
-				<view :class="index%3==0? 'pink' : index%2==0? 'blue' : 'green' " v-for="(item,index) in mock" :key="index">{{item}}</view>
-			</view>
-		</view>
-		<!-- 常用分类 -->
-		<view class="offset">
-			<view>常用分类</view>
-			<view>
-				<view v-for="(item,index) in offset" :key="index">{{item}}</view>
-			</view>
-		</view>
-		<!-- 搜索记录 -->
-		<view class="select">
-			<view style="width: 100%;height: 20upx;background-color: #F5F5F5;"></view>
-			<view>搜索记录</view>
-			<view v-for="(item,index) in select" :key="index">{{item}}</view>
-		</view>
+		
+		<seek-context v-if="show" :data="data" />
+		
+		<!-- 搜索前组件 -->
+		<seek-body v-if="!show" :allSelect="select" />
+		
 	</view>
 </template>
 
 <script>
 	import seekTop from '@/pages/seekTop/seekTop.vue' // 顶部搜索组件
+	import seekBody from '@/pages/seekBody/seekBody.vue' // 搜索前组件
+	import seekContext from '@/pages/seekContext/seekContext.vue' // 搜索详情
 	export default{
 		data(){
 			return{
-				mock:['领卷中心','Redmi K20','RedmiBook 14','智能积木 越野四驱车','手环 腕带'],
-				offset:['耳机','手机','音响','手表','配件','网关/传感器','健康','酷玩'],
-				select:['小米','华为']
+				select:['小米','华为'],
+				data:[],
+				show:false
 			}
 		},
 		methods:{
 			addSelect(e){
-				this.select.push(e)
+				let that = this
+				this.show = true
+				if(e == "") e = '智能积木 越野四驱车'
+				uni.request({
+					url:"http://ceshi3.dishait.cn/api/goods/search",
+					data:{
+						title:e,
+						page:1
+					},
+					method:"POST",
+					success(res){
+						console.log(res)
+						that.data = res.data.data
+					}
+				})
+				if(e != ""){
+					for (let i in this.select) {
+						if(e === this.select[i]){
+							this.select.unshift(e)
+							this.select.splice(this.select.indexOf(e,1),1)
+							return
+						}
+					}
+					this.select.unshift(e)
+				}
 			}
 		},
 		components:{
-			seekTop
+			seekTop,
+			seekBody,
+			seekContext
 		}
 	}
 </script>
 
-<style>
-	view,scroll-view,swiper,swiper-item{box-sizing: border-box;}
-	#main{margin: 0upx;}
-	.img{width: 100%;height: 100%;}
-	
-	.hot>view:first-child{font-size: 30upx;font-weight: 600;padding-left: 15upx;line-height: 80upx;}
-	.hot>view:nth-child(2){width: 100%;height: 260upx;background-color: skyblue;}
-	.hot>view:nth-child(3){display: flex;flex-wrap: wrap;padding-top: 15upx;}
-	.hot>view:nth-child(3)>view{padding: 10upx;margin: 10upx 15upx;}
-	.hot>view:nth-child(3) .pink{border: 4upx solid #EFCCCE;background-color: #F8EAE9;}
-	.hot>view:nth-child(3) .blue{border: 4upx solid #A9D7D9;background-color: #E8F6F6;}
-	.hot>view:nth-child(3) .green{border: 4upx solid #C4D1AA;background-color: #F2F6E8;}
-	
-	.offset{margin-top: 15upx;}
-	.offset>view:first-child{font-size: 30upx;font-weight: 600;padding-left: 15upx;line-height: 70upx;}
-	.offset>view:last-child{display: flex;flex-wrap: wrap;padding-top: 15upx;}
-	.offset>view:last-child>view{padding: 10upx;margin: 10upx 15upx;border: 4upx solid #F5F5F5;color: #727272;background-color: #F5F5F5;}
-	
-	.select>view:nth-child(2){font-weight: 600;}
-	.select>view:not(:first-child){border-bottom: 2upx solid #F8F8F8;line-height: 70upx;padding-left: 20upx;font-size: 30upx;}
-	
+<style scoped>
 </style>
