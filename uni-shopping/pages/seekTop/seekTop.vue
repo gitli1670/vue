@@ -16,15 +16,20 @@
 	export default{
 		data(){
 			return{
-				value:''
+				// value:''
 			}
+		},
+		props:{
+			value:String
 		},
 		methods:{
 			back(){ // 返回
 				uni.navigateBack({delta:1})
 			},
 			change(e){ // input框发生改变时
-				this.value = e.detail.value
+				this.$emit('changeValue',e.detail.value)
+				// this.value = e.detail.value
+				
 			},
 			seek(){
 				this.$emit("add",this.value)

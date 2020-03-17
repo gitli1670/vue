@@ -1,5 +1,5 @@
 <template>
-	<view id="main" @click="aa">
+	<view id="main">
 		<!-- 头部选择 -->
 		<view class="top">
 			<view class="top_one" v-for="(item,index) in topData" :key="index" @click="topSele(index)" >
@@ -44,16 +44,11 @@
 		props:{
 			data:Array
 		},
-		created() {
-			console.log()
-		},
 		methods:{
-			aa(){
-				// console.log(this.data)
-			},
 			topSele(index){
 				if(this.topIndex === index){ // 是否点击已选中的    如是，则返回
 					this.topData[index].top = !this.topData[index].top // 改变三角形方向
+					this.$emit("setShop",this.topData) // 传自定义事件 改变三角形方向
 					return
 				}
 				this.topIndex = index // 改变选中的下标
@@ -62,6 +57,7 @@
 					data.top = true
 				})
 				this.topData[index].sele = true // 改变三角形颜色
+				this.$emit("setShop",this.topData)
 			}
 		}
 	}

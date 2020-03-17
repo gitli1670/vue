@@ -19,7 +19,7 @@
 		<view class="select">
 			<view style="width: 100%;height: 20upx;background-color: #F5F5F5;"></view>
 			<view>搜索记录</view>
-			<view v-for="(item,index) in allSelect" :key="index">{{item}}</view>
+			<view v-for="(item,index) in allSelect" :key="index" @click="sele(index)" >{{item}}</view>
 		</view>
 	</view>
 </template>
@@ -33,8 +33,8 @@
 			}
 		},
 		methods:{
-			addSelect(e){
-				this.select.push(e)
+			sele(index){
+				this.$emit("sele",index)
 			}
 		},
 		props:{
