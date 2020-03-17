@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "seek-top": "/pages/seekTop/seekTop"
+  }
+}

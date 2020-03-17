@@ -1,0 +1,203 @@
+#carlist {
+	font-size: 28upx;
+	line-height: 1.8upx;
+	image {
+		width: 100%;
+		height: 100%;
+	}
+	@mixin radius ($top,$right,$bottom,$left) {
+		border-radius: $top $right $bottom $left;
+	}
+	.navtop {  //编辑
+		height: 80upx;
+		width: 98%;
+		margin: auto;
+		line-height: 80upx;
+		text-align: right;
+	}
+	.empty{  //购物车列表为空时
+		height: 200upx;
+		line-height: 200upx;
+		width: 100%;
+		.emptycontent{
+			width: 60%;
+			margin: auto;
+			text-align: center;
+			view{
+				float: left;
+			}
+			.caricon{
+					position: relative;
+					top: 15upx;
+					width: 50upx;
+					height: 50upx;
+			}
+			.varicon{
+				color: $uni-text-color-placeholder;
+				margin-left: 10upx;
+			}
+			.btn{
+				width: 160upx;
+				height: 65upx;
+				position: relative;
+				top: 18upx;
+				font-size: $uni-font-size-base;
+			}
+		}
+	}
+	.list {  //商品
+		width: 98%;
+		margin: auto;
+		.car {
+			width: 100%;
+			padding: 40upx 0;
+			border-top: 2px solid #F1F1F1;
+			display: flex;
+			.selecradio {  //选中
+				width: 10%;
+				position: relative;
+				.radio-select {
+					width: 50upx;
+					margin: auto;
+					height: 50upx;
+					position: relative;
+					top: 50%;
+					margin-top: -25%;
+				}
+			}
+			
+			.shopic {  //商品图片
+				width: 35%;
+				.shopimg {
+					width: 180upx;
+					height: 180upx;
+					margin: auto;
+					padding: 15upx;
+					border: 1px solid #ccc;
+				}
+			}
+			
+			.pro {  //介绍 版本 价钱
+				width: 55%;
+				line-height: 55upx;
+				.intr {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					font-size: 35upx;
+				}
+				.format {
+					color: $uni-text-color-placeholder;
+					font-size: 24upx;
+					display: flex;
+					justify-content: space-between;
+					border-radius: 8upx;
+					padding: 8upx 10upx;
+					margin: 15upx 0;
+					.skusarrow{
+						width: 45upx;
+						height: auto;
+						.arrow{
+							width: 30upx;
+							height: 20upx;
+							margin: auto;
+						}
+					}
+				}
+				.format.hover{
+					margin: 20upx 0;
+					background-color: $uni-bg-color-hover;
+				}
+				
+				.Product-int{
+					display: flex;
+					justify-content: space-between;
+					.price {
+						width: 50%;
+						color: #FD6801;
+						font-weight: 700;
+						.liter{
+							font-size: 20upx;
+						}
+						.big{
+							font-size: 32upx;
+						}
+					}
+					.price-num{
+						display: flex;
+						width: 50%;
+						.miu,.numvalue,.plus{
+							width: 65upx;
+							height: 65upx;
+							line-height: 65upx;
+							text-align: center;
+						}
+						.miu{
+							@include radius(8upx,0,0,8upx)
+							border: 1px solid #C8C7CC {
+								right: 0;
+							}
+							background-color: $uni-bg-color-grey;
+						}
+						.numvalue{
+							border: 1px solid #C8C7CC;
+						}
+						.plus{
+							border: 1px solid #C8C7CC {
+								left: 0;
+							}
+							@include radius(0,8upx,8upx,0)
+							background-color: $uni-bg-color-grey;
+						}
+					}
+				}
+			}
+		}
+	}
+	//结算
+	.all-price{
+		height: 88upx;
+		width: 100%;
+		line-height: 88upx;
+		position: fixed;
+		bottom: 0;
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+		line-height: 88upx;
+		.selectall{
+			width: 20%;
+			.radio-select{
+				width: 50upx;
+				height: 50upx;
+				margin: auto;
+				position: relative;
+				top: 50%;
+				margin-top: -25%;
+			}
+		}
+		.com{
+			width: 80%;
+			display: flex;
+			.combined{
+				width: 50%;
+			}
+			.combin{
+				@extend .settlement;
+				background-color:#FD6801;
+			}
+			.settlement{
+				width: 50%;
+				color: white;
+				background-color: #FD6801;
+			}
+			.sett{
+				@extend .settlement;
+				background-color: #DC3546;
+			}
+		}
+		
+	}
+	
+}
+

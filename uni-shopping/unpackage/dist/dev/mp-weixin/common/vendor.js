@@ -7594,9 +7594,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!**************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/uni-shopping/pages.json ***!
-  \**************************************************************/
+/*!**********************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/uni-app/uni-shopping/pages.json ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8501,20 +8501,20 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 
 /***/ }),
 /* 7 */
-/*!*******************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/uni-shopping/pages.json?{"type":"style"} ***!
-  \*******************************************************************************/
+/*!***************************************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/uni-app/uni-shopping/pages.json?{"type":"style"} ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/seek/seek": { "navigationStyle": "custom" }, "pages/index/index": { "navigationStyle": "custom" }, "pages/carlist1/carlist": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/carlist/carlist": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/carlist2/carlist": { "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "uni-app", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
-/*!******************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/uni-shopping/pages.json?{"type":"stat"} ***!
-  \******************************************************************************/
+/*!**************************************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/uni-app/uni-shopping/pages.json?{"type":"stat"} ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
