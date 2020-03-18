@@ -1,11 +1,11 @@
 <template>
-	<view>a</view>
+	<veiw>
+		
+	</veiw>
 </template>
 
 <script>
-	
 </script>
 
 <style>
-	
 </style>

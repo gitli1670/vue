@@ -1,7 +1,7 @@
 <template>
 	<view id="main">
 		<!-- 顶部搜索 -->
-		<seek-top @add="addSelect" @changeValue="changeValue" :value="value" />
+		<seek-top @back='back' @add="addSelect" @changeValue="changeValue" :value="value" />
 		
 		<!-- 搜索前组件 -->
 		<seek-body @sele="sele" v-if="!show" :allSelect="select" />
@@ -12,9 +12,9 @@
 </template>
 
 <script>
-	import seekTop from '@/pages/seekTop/seekTop.vue' // 顶部搜索组件
-	import seekBody from '@/pages/seekBody/seekBody.vue' // 搜索前组件
-	import seekContext from '@/pages/seekContext/seekContext.vue' // 搜索详情
+	import seekTop from '@/components/seekTop/seekTop.vue' // 顶部搜索组件
+	import seekBody from '@/components/seekBody/seekBody.vue' // 搜索前组件
+	import seekContext from '@/components/seekContext/seekContext.vue' // 搜索详情
 	export default{
 		data(){
 			return{
@@ -130,6 +130,14 @@
 			},
 			changeValue(e){ // 当输入内容是 改变 this.value 的值
 				this.value = e
+			},
+			back(){
+				if(this.show){
+					this.show = false
+					this.value = ''
+				}else{
+					uni.navigateBack({delta:1})
+				}
 			}
 		},
 		components:{

@@ -17,7 +17,7 @@
 					<view :class="index==swipernum?'view':''">{{item.name}}</view>
 				</view>
 			</scroll-view>
-			<view style="width:100%;height: 76upx;"></view>
+			<view style="width:100%;height: 66upx;"></view>
 			
 			<swiper class="aa" :current="swipernum" @change="silSwiper" >
 				<swiper-item v-for="(item,index) in slidingData" :key="index" ><index-first /></swiper-item>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-	import indexFirst from '@/pages/indexFirst/indexFirst.vue'
+	import indexFirst from '@/components/indexFirst/indexFirst.vue'
 	export default {
 		data() {
 			return {
@@ -72,17 +72,17 @@
 	.img{width: 100%;height: 100%;}
 	
 	/* 顶部固定定位样式 */
-	.top{width:100%;height: 80upx;display: flex;justify-content: space-between;position: fixed;top: 0;z-index: 2;background-color: white;padding-top: 10upx;}
+	.top{width:100%;height: 80upx;display: flex;justify-content: space-between;position: fixed;top: 0;z-index: 2;background-color: white;padding:10upx 0;}
 	.top>view:first-child{width: 50upx;height: 50upx;margin: auto 10upx;}
 	.top>view:last-child{width: 60upx;height: 60upx;margin: auto 10upx;}
 	.top .top_con{width:580upx;height:100%;background-color: #F7F7F7;border-radius: 10upx;display: flex;}
 	.top .top_con>view:first-child{width:40upx;height: 40upx;margin-top: 15upx;margin-left: 15upx;}
-	.top .top_con>view:last-child{line-height: 2;color: #D2D2D2;margin: aotu 10upx;margin-left: 10upx;}
+	.top .top_con>view:last-child{line-height: 2;font-size: 32upx;color: #D2D2D2;margin: aotu 10upx;margin-left: 10upx;}
 	
 	/* 滑动部分样式 */
 	.context{width: 100%;}
 	
-	.context scroll-view{white-space: nowrap;width:100%;height: 76upx;position: fixed;top: 80upx;z-index: 2;background-color: white;padding-top: 20upx;}
+	.context scroll-view{white-space: nowrap;width:100%;height: 66upx;position: fixed;top: 80upx;z-index: 2;background-color: white;}
 	.context scroll-view .scroll_data{width:100%;height: 56upx;display: inline-block;width:20%;text-align: center;}
 	.context scroll-view .scroll_data>view{text-align: center;display: inline-block;color: #454545;border-bottom: 6upx solid #FFFFFF;padding-bottom: 12upx;font-size: 30rpx;}
 	.context scroll-view .scroll_data .view{color: #FD6801;border-bottom-color:#FD6801;} /* 添加class后的样式 */

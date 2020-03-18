@@ -24,7 +24,7 @@
 		},
 		methods:{
 			back(){ // 返回
-				uni.navigateBack({delta:1})
+				this.$emit("back")
 			},
 			change(e){ // input框发生改变时
 				this.$emit('changeValue',e.detail.value)
