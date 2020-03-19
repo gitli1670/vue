@@ -9,7 +9,7 @@
 					<view><image class="img" :src="item.sele? item.top?'../../static/img-seek/bottom.png':'../../static/img-seek/bottom1.png' : '../../static/img-seek/bottom.png'" /></view>
 				</view>
 			</view>
-			<view class="top_two">筛选</view>
+			<view class="top_two" @click="seleOne">筛选</view>
 		</view>
 		<!-- 商品内容 -->
 		<view class="shop">
@@ -58,6 +58,9 @@
 				})
 				this.topData[index].sele = true // 改变三角形颜色
 				this.$emit("setShop",this.topData)
+			},
+			seleOne(){
+				this.$emit('seleOne')
 			}
 		}
 	}
@@ -73,7 +76,7 @@
 	.top .top_one{display:flex;}
 	.top .top_one>view:last-child{margin-top: -10upx;margin-left: 10upx;}
 	.top .top_one>view:last-child view{width: 30upx;height: 20upx;margin: 0 auto;}
-	
+	.top .top_two{color: #FD6801;}
 	.shop{width: 100%;}
 	.shop_data{width: 100%;height: 280upx;display: flex;padding: 10upx;justify-content: space-between;}
 	.shop_data>view:first-child{width: 35%;height: 240upx;}

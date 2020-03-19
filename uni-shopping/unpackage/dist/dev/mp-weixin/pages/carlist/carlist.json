@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "guess-like": "/components/GuessLike/GuessLike",
+    "popup-select": "/components/PopupSelect/PopupSelect"
+  }
 }

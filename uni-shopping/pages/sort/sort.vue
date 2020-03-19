@@ -16,7 +16,7 @@
 			</view>
 		</view>
 		<view class="fenl">
-			<view class="felf">
+			<view class="felf">	
 				<view v-for="(item,index) in fentext" class="felb" :key="item.index" @click="handleSelect(index)">
 					<view class="felb-font" :class="[SelectStyle == index ? 'active':'']">
 						{{item.name}}
@@ -63,7 +63,19 @@
 				/** 
 				 * 滚动监听
 				 */
-				// console.log(e)
+				if(e.detail.scrollTop>3253){
+					this.SelectStyle = 5
+				}else if(e.detail.scrollTop>2663){
+					this.SelectStyle = 4
+				}else if(e.detail.scrollTop>2001){
+					this.SelectStyle = 3
+				}else if(e.detail.scrollTop>1318){
+					this.SelectStyle = 2
+				}else if(e.detail.scrollTop>660){
+					this.SelectStyle = 1
+				}else{
+					this.SelectStyle = 0
+				}
 			},
 			handleSelect(e){
 				this.id = 'fenr'+parseInt(e+1);

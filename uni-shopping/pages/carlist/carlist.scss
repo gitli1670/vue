@@ -1,6 +1,14 @@
 $text-color : #FD6801;
 $text-color-active:#F2AA78;  //声明的字体被选中的颜色
 $background-text-color:#FD6801;  //声明价钱字体颜色和加入
+.mark{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		z-index: 20;
+		background: rgba(0, 0, 0, 0.6);
+	}
 .carlist {
 	font-size: 28upx;
 	position: relative;

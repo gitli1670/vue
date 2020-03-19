@@ -88,13 +88,10 @@
 			</guess-like>
 			<!-- 为你推荐 -->
 			
-			
-			<popup-select :fixd="fixd" :selectCarListConfig="selectCarListConfig"></popup-select>
+			<!-- 弹窗 -->
+			<popup-select :fixd="fixd" :carList='carLists[ind]' :selectCarListConfig="selectCarListConfig" @handleCloseCar='handleCloseFixd'></popup-select>
+			<!-- 弹窗 -->
 		</scroll-view>
-
-		
-		
-		
 		<view class="all-price">
 			<!-- 计算金额 收藏 删除 -->
 			<view class="selectall">
@@ -126,7 +123,7 @@
 		
 		<!-- ===================================== -->
 		<view style="height:88upx;width: 100%;"></view>
-		
+		<view class="mark" v-show="fixd" @click="handleCloseFixd"></view>
 	</view>
 </template>
 
@@ -144,6 +141,7 @@
 				money : 0,  //总计
 				fixd : false,  //点击编辑显示的选项配置按钮弹窗
 				selectCarListConfig : null, //向弹窗组件发送列表数据
+				ind : 0,  //点击选项后传给弹窗组件当前的数据
 			}
 		},
 		methods: {
@@ -152,6 +150,10 @@
 				 * 渲染商品列表
 				 */
 				let that = this;
+				uni.showLoading({  //渲染完成前显示
+					title:'加载ing',
+					mask:true
+				})
 				uni.request({  //请求购物车列表
 					url: 'http://ceshi3.dishait.cn/api/cart',
 					header: {
@@ -162,6 +164,7 @@
 							if(res.data.data.length == 0){
 								that.carempty = true;
 							}
+					uni.hideLoading()  //渲染完成后隐藏
 					}
 				})
 			},
@@ -265,13 +268,17 @@
 					}
 				}
 			},
-			handleSkus(e){
-				/** 
+			handleSkus(e){  
+				/** e 获取到当前数据下标
 				 * 点击选项弹窗
 				 */
+				uni.showLoading({
+					title:'加载ing',
+					mask:true
+				})
+				this.ind = e;
 				this.fixd = true;
 				let LIstId = this.carLists[e].id;
-				// console.log(this.carLists[e])
 				uni.request({  //发送点击的数据id获取库存
 					url:`http://ceshi3.dishait.cn/api/cart/${LIstId}/sku`,
 					header:{
@@ -279,8 +286,15 @@
 					},
 					success:(res) => {
 						this.selectCarListConfig = res.data.data;
+						uni.hideLoading();
 					}
 				})
+			},
+			handleCloseFixd(){
+				/** 
+				 * 点击mark隐藏蒙版和弹窗
+				 */
+				this.fixd = false;
 			}
 		},
 		components: {

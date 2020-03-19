@@ -1,8 +1,9 @@
 {
   "navigationStyle": "custom",
   "usingComponents": {
-    "seek-top": "/pages/seekTop/seekTop",
-    "seek-body": "/pages/seekBody/seekBody",
-    "seek-context": "/pages/seekContext/seekContext"
+    "seek-top": "/components/seekTop/seekTop",
+    "seek-body": "/components/seekBody/seekBody",
+    "seek-context": "/components/seekContext/seekContext",
+    "seek-sele": "/components/seekSele/seekSele"
   }
 }

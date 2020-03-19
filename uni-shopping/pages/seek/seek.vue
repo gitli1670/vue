@@ -1,5 +1,7 @@
 <template>
 	<view id="main">
+		<view style="width: 100%;height: 80upx;background-color: white;position: fixed;top: 0;z-index: 2;"></view>
+		<view style="width: 100%;height: 80upx;"></view>
 		<!-- 顶部搜索 -->
 		<seek-top @back='back' @add="addSelect" @changeValue="changeValue" :value="value" />
 		
@@ -7,20 +9,25 @@
 		<seek-body @sele="sele" v-if="!show" :allSelect="select" />
 		
 		<!-- 搜索详情 -->
-		<seek-context @setShop="setShop" v-if="show" :data="data" />
+		<seek-context @seleOne='seleOne' @setShop="setShop" v-if="show" :data="data" />
+		
+		<!-- 筛选 -->
+		<seek-sele v-if="seekSele" />
 	</view>
 </template>
 
 <script>
 	import seekTop from '@/components/seekTop/seekTop.vue' // 顶部搜索组件
 	import seekBody from '@/components/seekBody/seekBody.vue' // 搜索前组件
-	import seekContext from '@/components/seekContext/seekContext.vue' // 搜索详情
+	import seekContext from '@/components/seekContext/seekContext.vue' // 搜索详情组件
+	import seekSele from '@/components/seekSele/seekSele.vue' // 筛选组件
 	export default{
 		data(){
 			return{
 				select:['小米','华为'],
 				data:[],
 				show:false ,//搜索前与搜索后的
+				seekSele:false,
 				value:''
 			}
 		},
@@ -138,12 +145,17 @@
 				}else{
 					uni.navigateBack({delta:1})
 				}
+			},
+			seleOne(){
+				this.seekSele = true
+				this.show = unll
 			}
 		},
 		components:{
 			seekTop,
 			seekBody,
-			seekContext
+			seekContext,
+			seekSele
 		}
 	}
 </script>

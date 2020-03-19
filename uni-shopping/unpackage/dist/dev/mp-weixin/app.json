@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/seek/seek",
     "pages/index/index",
-    "pages/carlist1/carlist",
+    "pages/seek/seek",
+    "pages/login/login",
+    "pages/sort/sort",
     "pages/carlist/carlist",
-    "pages/carlist2/carlist"
+    "pages/my/my"
   ],
   "subPackages": [],
   "window": {
@@ -26,7 +27,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/carlist1/carlist",
+        "pagePath": "pages/sort/sort",
         "iconPath": "static/images/select1.png",
         "selectedIconPath": "static/images/select2.png",
         "text": "分类"
@@ -38,7 +39,7 @@
         "text": "购物车"
       },
       {
-        "pagePath": "pages/carlist2/carlist",
+        "pagePath": "pages/my/my",
         "iconPath": "static/images/My.png",
         "selectedIconPath": "static/images/My-Y.png",
         "text": "我的"

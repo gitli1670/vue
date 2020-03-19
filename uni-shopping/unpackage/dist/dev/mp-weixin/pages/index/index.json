@@ -1,6 +1,6 @@
 {
   "navigationStyle": "custom",
   "usingComponents": {
-    "index-first": "/pages/indexFirst/indexFirst"
+    "index-first": "/components/indexFirst/indexFirst"
   }
 }

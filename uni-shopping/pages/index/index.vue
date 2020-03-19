@@ -1,5 +1,7 @@
 <template>
 	<view id="main" >
+		<view style="width: 100%;height: 80upx;background-color: white;position: fixed;top: 0;z-index: 2;"></view>
+		<view style="width: 100%;height: 80upx;"></view>
 		<!-- 顶部固定定位 -->
 		<view class="top">
 			<view><image class="img" src="../../static/img-index/massage.png"/></view>
@@ -72,7 +74,7 @@
 	.img{width: 100%;height: 100%;}
 	
 	/* 顶部固定定位样式 */
-	.top{width:100%;height: 80upx;display: flex;justify-content: space-between;position: fixed;top: 0;z-index: 2;background-color: white;padding:10upx 0;}
+	.top{width:100%;height: 80upx;display: flex;justify-content: space-between;position: fixed;top: 80upx;z-index: 2;background-color: white;padding:10upx 0;}
 	.top>view:first-child{width: 50upx;height: 50upx;margin: auto 10upx;}
 	.top>view:last-child{width: 60upx;height: 60upx;margin: auto 10upx;}
 	.top .top_con{width:580upx;height:100%;background-color: #F7F7F7;border-radius: 10upx;display: flex;}
@@ -82,7 +84,7 @@
 	/* 滑动部分样式 */
 	.context{width: 100%;}
 	
-	.context scroll-view{white-space: nowrap;width:100%;height: 66upx;position: fixed;top: 80upx;z-index: 2;background-color: white;}
+	.context scroll-view{white-space: nowrap;width:100%;height: 66upx;position: fixed;top: 160upx;z-index: 2;background-color: white;}
 	.context scroll-view .scroll_data{width:100%;height: 56upx;display: inline-block;width:20%;text-align: center;}
 	.context scroll-view .scroll_data>view{text-align: center;display: inline-block;color: #454545;border-bottom: 6upx solid #FFFFFF;padding-bottom: 12upx;font-size: 30rpx;}
 	.context scroll-view .scroll_data .view{color: #FD6801;border-bottom-color:#FD6801;} /* 添加class后的样式 */

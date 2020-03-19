@@ -87,10 +87,10 @@
 	.swiper .ball view{width: 20upx;height:20upx;margin: 0 4upx;border-radius: 50%;}
 	
 	/* 列表 */
-	.list{width: 100%;display: flex;justify-content: space-between;padding: 20upx 30upx;flex-wrap: wrap;}
+	.list{width: 100%;display: flex;justify-content: space-between;padding: 10upx 30upx;flex-wrap: wrap;}
 	.list>view{width: 20%;height: 100upx;margin-top: 15upx;}
 	.list>view .list_one{width: 40%;height: 50upx;margin: auto;}
-	.list>view .list_two{text-align: center;color: #464646;font-size: 26upx;}
+	.list>view .list_two{text-align: center;color: #464646;font-size: 20upx;margin-top: 10upx;}
 	
 	/* 图片展示 */
 	.imglist{width: 100%;height: 560upx;display: flex;justify-content: space-between;background-color: #fff;padding: 30upx 0;}
