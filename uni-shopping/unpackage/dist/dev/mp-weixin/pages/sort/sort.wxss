@@ -1,79 +1,79 @@
 
-image.data-v-62fd975e{
+image.data-v-1e266300{
 	width: 100%;
 	height: 100%;
 }
-.shous.data-v-62fd975e {
+.shous.data-v-1e266300 {
 	position: fixed;
 	height: 68rpx;
 	width: 100%;
 	line-height: 68rpx;
 	z-index: 20;
 }
-.shous-auto.data-v-62fd975e{
+.shous-auto.data-v-1e266300{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 	width: 97%;
 	margin: auto;
 }
-.tufl.data-v-62fd975e {
+.tufl.data-v-1e266300 {
 	width:95%;
 	border-radius: 10rpx;
 	background-color: #F7F7F7;
 }
-.tufl-pic.data-v-62fd975e{
+.tufl-pic.data-v-1e266300{
 	width:35rpx;
 	height: 35rpx;
 	position: absolute;
 	left: 35rpx;
 	top:8rpx;
 }
-.tufl-font.data-v-62fd975e{
+.tufl-font.data-v-1e266300{
 	color: #C0C0C0;
 	font-size: 24rpx;
 	display: inline-block;
 	margin-left: 80rpx;
 }
-.turi.data-v-62fd975e {
+.turi.data-v-1e266300 {
 	width: 10%;
 }
-.turi-info.data-v-62fd975e{
+.turi-info.data-v-1e266300{
 	margin: 10rpx 0 0 18rpx;
 	width: 45rpx;
 	height: 45rpx;
 }
-.fenl.data-v-62fd975e {
+.fenl.data-v-1e266300 {
 	width: 100%;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 }
-.felf.data-v-62fd975e {
+.felf.data-v-1e266300 {
 	text-align: center;
 	width: 20%;
 	margin-top: 100rpx;
 }
-.felb.data-v-62fd975e {
+.felb.data-v-1e266300 {
 	padding: 15rpx 0;
 	border-bottom: 1px solid #C8C7CC;
 	border-right: 1px solid #C8C7CC;
 }
-.felb .felb-font.data-v-62fd975e{
+.felb .felb-font.data-v-1e266300{
 	height: 78rpx;
 	font-size: 26rpx;
 	line-height: 78rpx;
 }
-.felb .felb-font.active.data-v-62fd975e{
+.felb .felb-font.active.data-v-1e266300{
 	border-left: 3px solid #FD6801;
 	color: #FD6801;
 }
-.fenri.data-v-62fd975e {
+.fenri.data-v-1e266300 {
 	height: 1000rpx;
 	margin-top: 100rpx;
 	width: 80%;
 }
-.fenr.data-v-62fd975e {
+.fenr.data-v-1e266300 {
 	height: auto;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -84,16 +84,16 @@ image.data-v-62fd975e{
 	-webkit-flex-wrap: wrap;
 	        flex-wrap: wrap;
 }
-.fenimgtext.data-v-62fd975e {
+.fenimgtext.data-v-1e266300 {
 	width: 180rpx;
 	height: 190rpx;
 	text-align: center;
 }
-.fenimgtext .fenimgtext-pic.data-v-62fd975e {
+.fenimgtext .fenimgtext-pic.data-v-1e266300 {
 	width: 180rpx;
 	height: 130rpx;
 }
-.fenimgtext-font.data-v-62fd975e{
+.fenimgtext-font.data-v-1e266300{
 	font-size: 24rpx;
 }
 

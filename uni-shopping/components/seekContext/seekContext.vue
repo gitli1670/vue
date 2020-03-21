@@ -1,7 +1,7 @@
 <template>
 	<view id="main">
 		<!-- 头部选择 -->
-		<view class="top">
+		<view class="top" v-if="!noData">
 			<view class="top_one" v-for="(item,index) in topData" :key="index" @click="topSele(index)" >
 				<view :style="{color:topIndex===index?'#FD6801':''}">{{item.name}}</view>
 				<view>
@@ -13,23 +13,35 @@
 		</view>
 		<!-- 商品内容 -->
 		<view class="shop">
-			<view class="shop_data" v-for="(item,index) in data" :key="index">
-				<view><image class="img" :src="item.cover" /></view>
-				<view class="shop_data_one">
-					<view>{{item.title}}</view>
-					<view>{{item.desc}}</view>
-					<view>￥{{item.min_price}}</view>
-					<view>
-						<view>{{item.comments_count}}条评论</view>
-						<view>{{~~((item.comments_good_count/item.comments_count)*100)}}% 满意</view>
+					<view v-if="noData" >
+						<view class="shop_noData">
+							当前没有搜索到“<view>{{value}}</view>”或类似的商品
+						</view>
+						<guess-like>
+							<view style="text-align: center;color:#FD6801;font-size: 36upx;font-weight: 600;line-height: 100upx;">为你推荐</view>
+						</guess-like>
 					</view>
-				</view>
-			</view>
+						
+					<scroll-view v-if="!noData" scroll-y :style="{height:scrollHeight+'px'}">
+						<view class="shop_data" @click="look(index)" v-for="(item,index) in data" :key="index">
+							<view><image class="img" :src="item.cover" /></view>
+							<view class="shop_data_one">
+								<view>{{item.title}}</view>
+								<view>{{item.desc}}</view>
+								<view>￥{{item.min_price}}</view>
+								<view>
+									<view>{{item.comments_count}}条评论</view>
+									<view>{{~~((item.comments_good_count/item.comments_count)*100)}}% 满意</view>
+								</view>
+							</view>
+						</view>
+					</scroll-view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import GuessLike from '../GuessLike/GuessLike.vue'
 	export default{
 		data(){
 			return{
@@ -38,11 +50,28 @@
 					{name:'销量',sele:false,top:true},
 					{name:'价格',sele:false,top:true}
 				],
-				topIndex:0
+				topIndex:0, // 字体颜色
+				scrollHeight:0, // 滚动条高度
+				noData:true
+			}
+		},
+		created() {
+			// 计算scrollHeight的高度
+			this.scrollHeight = uni.getSystemInfoSync().windowWidth*(~~(750*uni.getSystemInfoSync().windowHeight/uni.getSystemInfoSync().windowWidth)-300)/750
+		},
+		watch:{
+			data:{
+				handler(newVal, oldVal) {
+					console.log(this.data)
+					this.data.length ? this.noData = false : this.noData = true
+				},
+				// 深度监听 属性的变化
+				deep: true
 			}
 		},
 		props:{
-			data:Array
+			data:Array,
+			value:String
 		},
 		methods:{
 			topSele(index){
@@ -61,7 +90,39 @@
 			},
 			seleOne(){
 				this.$emit('seleOne')
+			},
+			look(index){
+				// // 添加商品
+				// uni.getStorage({
+				// 	key:'token'
+				// }).then((res)=>{
+				// 	console.log(res[1].data,this.data[index])
+				// 	if(res[1]){
+				// 		uni.request({
+				// 			url:"http://ceshi3.dishait.cn/api/cart",
+				// 			header:{
+				// 				token:res[1].data
+				// 			},
+				// 			method:"POST",
+				// 			data:{
+				// 				shop_id:this.data[index].id,
+				// 				skus_type:0,
+				// 				num:1
+				// 			},
+				// 			success(res) {
+				// 				console.log(res)
+				// 			},
+				// 			fail(res) {
+				// 				console.log(res)
+				// 			}
+				// 		})
+				// 	}
+				// })
+				
 			}
+		},
+		components:{
+			GuessLike
 		}
 	}
 </script>
@@ -78,6 +139,10 @@
 	.top .top_one>view:last-child view{width: 30upx;height: 20upx;margin: 0 auto;}
 	.top .top_two{color: #FD6801;}
 	.shop{width: 100%;}
+	
+	.shop_noData{width: 100%;line-height: 200upx;text-align: center;font-size: 32upx;}
+	.shop_noData>view{display: inline-block;color: #FD6801;}
+	
 	.shop_data{width: 100%;height: 280upx;display: flex;padding: 10upx;justify-content: space-between;}
 	.shop_data>view:first-child{width: 35%;height: 240upx;}
 	.shop_data_one{width: 64%;}

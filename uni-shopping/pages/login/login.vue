@@ -75,7 +75,6 @@
 					method:'POST',
 					success:(res) =>{
 						this.name = res.data.data.username
-						console.log(res)
 						if(_this.inputname==""||_this.inputpas==""){
 							uni.showModal({
 									content: '输入不能为空',
@@ -89,8 +88,15 @@
 										showCancel: false
 									});
 									uni.setStorage({
+										key:"token",
+										data:res.data.data.token
+									})
+									uni.setStorage({
 										key:"name",
 										data:_this.name
+									})
+									uni.switchTab({
+										url:"../index/index"
 									})
 								}else{
 									uni.showModal({

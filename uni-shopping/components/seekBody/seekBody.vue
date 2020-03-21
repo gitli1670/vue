@@ -3,7 +3,7 @@
 		<!-- 热门搜索 -->
 		<view class="hot">
 			<view>热门搜索</view>
-			<view><image /></view>
+			<view><image class="img" src="../../static/5f3293a0be8956d791bb2140df8d78e930ea9611.jpg@1320w_742h.webp" /></view>
 			<view>
 				<view :class="index%3==0? 'pink' : index%2==0? 'blue' : 'green' " v-for="(item,index) in mock" :key="index">{{item}}</view>
 			</view>
@@ -49,7 +49,7 @@
 	.img{width: 100%;height: 100%;}
 	
 	.hot>view:first-child{font-size: 30upx;font-weight: 600;padding-left: 15upx;line-height: 80upx;}
-	.hot>view:nth-child(2){width: 100%;height: 260upx;background-color: skyblue;}
+	.hot>view:nth-child(2){width: 100%;height: 422upx;}
 	.hot>view:nth-child(3){display: flex;flex-wrap: wrap;padding-top: 15upx;}
 	.hot>view:nth-child(3)>view{padding: 10upx;margin: 10upx 15upx;}
 	.hot>view:nth-child(3) .pink{border: 4upx solid #EFCCCE;background-color: #F8EAE9;}

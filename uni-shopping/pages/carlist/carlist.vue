@@ -154,17 +154,23 @@
 					title:'加载ing',
 					mask:true
 				})
-				uni.request({  //请求购物车列表
-					url: 'http://ceshi3.dishait.cn/api/cart',
-					header: {
-						token: "7dadcf0161710b5256265ed25cb7873b3fd61633"
-					},
-					success: (res) => {//将获取到的购物车列表存放到carLists中
-							that.carLists = res.data.data;
-							if(res.data.data.length == 0){
-								that.carempty = true;
+				uni.getStorage({
+					key:'token'
+				}).then((res)=>{
+					if(res[1]){
+						uni.request({  //请求购物车列表
+							url: 'http://ceshi3.dishait.cn/api/cart',
+							header: {
+								token: "7dadcf0161710b5256265ed25cb7873b3fd61633"
+							},
+							success: (res) => {//将获取到的购物车列表存放到carLists中
+									that.carLists = res.data.data;
+									if(res.data.data.length == 0){
+										that.carempty = true;
+									}
+							uni.hideLoading()  //渲染完成后隐藏
 							}
-					uni.hideLoading()  //渲染完成后隐藏
+						})
 					}
 				})
 			},

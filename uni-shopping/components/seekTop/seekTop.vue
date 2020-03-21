@@ -16,7 +16,7 @@
 	export default{
 		data(){
 			return{
-				// value:''
+				
 			}
 		},
 		props:{
@@ -28,8 +28,6 @@
 			},
 			change(e){ // input框发生改变时
 				this.$emit('changeValue',e.detail.value)
-				// this.value = e.detail.value
-				
 			},
 			seek(){
 				this.$emit("add",this.value)

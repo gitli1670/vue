@@ -24,13 +24,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.popup.popup-options.data-v-49b94d2a {
+.popup.popup-options.data-v-78f61348 {
   position: fixed;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   bottom: 0rpx;
 }
-.mark.data-v-49b94d2a {
+.mark.data-v-78f61348 {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -38,7 +38,7 @@
   z-index: 20;
   background: rgba(0, 0, 0, 0.6);
 }
-.popup.data-v-49b94d2a {
+.popup.data-v-78f61348 {
   position: fixed;
   -webkit-transform: all 0.5s;
           transform: all 0.5s;
@@ -48,15 +48,15 @@
   background: white;
   border-radius: 20rpx 20rpx 0 0;
 }
-.popup image.data-v-49b94d2a {
+.popup image.data-v-78f61348 {
     width: 100%;
     height: 100%;
 }
-.popup .popup-select.data-v-49b94d2a {
+.popup .popup-select.data-v-78f61348 {
     width: 93%;
     margin: auto;
 }
-.popup .popup-select-pic-price.data-v-49b94d2a {
+.popup .popup-select-pic-price.data-v-78f61348 {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
@@ -66,54 +66,54 @@
       margin: 30rpx 0;
       padding: 20rpx 0;
 }
-.popup .popup-select-pic-price .popup-pic.data-v-49b94d2a {
+.popup .popup-select-pic-price .popup-pic.data-v-78f61348 {
         width: 27%;
         height: 190rpx;
         padding: 20rpx;
         border: 1px solid #ECEDF0;
         border-radius: 10rpx;
 }
-.popup .popup-select-pic-price .popup-price.data-v-49b94d2a {
+.popup .popup-select-pic-price .popup-price.data-v-78f61348 {
         width: 63%;
         line-height: 20rpx;
 }
-.popup .popup-select-pic-price .popup-price-cont.data-v-49b94d2a {
+.popup .popup-select-pic-price .popup-price-cont.data-v-78f61348 {
           margin: 90rpx 0 25rpx 0;
 }
-.popup .popup-select-pic-price .popup-price-cont-icon.data-v-49b94d2a {
+.popup .popup-select-pic-price .popup-price-cont-icon.data-v-78f61348 {
             color: #FD6801;
             font-size: 20rpx;
 }
-.popup .popup-select-pic-price .popup-price-cont-pri.data-v-49b94d2a {
+.popup .popup-select-pic-price .popup-price-cont-pri.data-v-78f61348 {
             font-size: 40rpx;
             font-weight: 700;
             color: #FD6801;
 }
-.popup .popup-select-pic-price .popup-price-des-capa.data-v-49b94d2a {
+.popup .popup-select-pic-price .popup-price-des-capa.data-v-78f61348 {
           margin: 0 10rpx;
 }
-.popup .popup-select-color-text.data-v-49b94d2a {
+.popup .popup-select-color-text.data-v-78f61348 {
       height: 88rpx;
       line-height: 88rpx;
       text-indent: 1em;
 }
-.popup .popup-select-color-option.data-v-49b94d2a {
+.popup .popup-select-color-option.data-v-78f61348 {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
 }
-.popup .popup-select-color-option .option.data-v-49b94d2a {
+.popup .popup-select-color-option .option.data-v-78f61348 {
         margin-right: 30rpx;
         border-radius: 6rpx;
         padding: 10rpx 80rpx;
         background: #f8f8f8;
 }
-.popup .popup-select-color-option .active.data-v-49b94d2a {
+.popup .popup-select-color-option .active.data-v-78f61348 {
         border: 1px solid #FD6801;
         background: #ffe0cb;
         color: #FD6801;
 }
-.popup .popup-select .quantity.data-v-49b94d2a {
+.popup .popup-select .quantity.data-v-78f61348 {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
@@ -124,29 +124,29 @@
       line-height: 80rpx;
       padding-top: 30rpx;
 }
-.popup .popup-select .quantity-num.data-v-49b94d2a {
+.popup .popup-select .quantity-num.data-v-78f61348 {
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
 }
-.popup .popup-select .quantity-num view.data-v-49b94d2a {
+.popup .popup-select .quantity-num view.data-v-78f61348 {
           width: 70rpx;
           height: 70rpx;
           line-height: 70rpx;
           text-align: center;
           border: 1px solid #e2e2e4;
 }
-.popup .popup-select .quantity-num view.data-v-49b94d2a:first-child {
+.popup .popup-select .quantity-num view.data-v-78f61348:first-child {
             border-right: 0;
             border-radius: 6rpx 0 0 6rpx;
             background: #f8f8f8;
 }
-.popup .popup-select .quantity-num view.data-v-49b94d2a:last-child {
+.popup .popup-select .quantity-num view.data-v-78f61348:last-child {
             border-left: 0;
             border-radius: 0 6rpx 6rpx 0;
             background: #f8f8f8;
 }
-.popup .joincar.data-v-49b94d2a {
+.popup .joincar.data-v-78f61348 {
     text-align: center;
     padding: 30rpx 0;
     background: #FD6801;

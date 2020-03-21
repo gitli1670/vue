@@ -1,6 +1,5 @@
 <template>
 	<view id="main">
-		<view style="width: 100%;height: 80upx;background-color: white;position: fixed;top: 0;z-index: 2;"></view>
 		<view style="width: 100%;height: 80upx;"></view>
 		<!-- 顶部搜索 -->
 		<seek-top @back='back' @add="addSelect" @changeValue="changeValue" :value="value" />
@@ -9,10 +8,10 @@
 		<seek-body @sele="sele" v-if="!show" :allSelect="select" />
 		
 		<!-- 搜索详情 -->
-		<seek-context @seleOne='seleOne' @setShop="setShop" v-if="show" :data="data" />
+		<seek-context @seleOne='seleOne' @setShop="setShop" v-if="show" :data="data" :value="value" />
 		
 		<!-- 筛选 -->
-		<seek-sele v-if="seekSele" />
+		<seek-sele @vanish="vanish" v-if="seekSele" />
 	</view>
 </template>
 
@@ -44,7 +43,6 @@
 					},
 					method:"POST",
 					success(res){
-						console.log(res)
 						that.data = res.data.data
 					}
 				})
@@ -60,74 +58,60 @@
 				}
 			},
 			setShop(e){ // seekContext的自定义事件  改变data中数据的顺序
+				let all = '' 
 				if(e[0].sele){
-					let arr = JSON.parse(JSON.stringify(this.data))
-					for (let i in this.data) {
-						let itemI = this.data[i]
-						for (let j = i; j < this.data.length; j++) {
-							let itemJ = this.data[j]
-							if(~~((itemI.comments_good_count/itemI.comments_count)*100)<~~((itemJ.comments_good_count/itemJ.comments_count)*100)){
-								let item1 = itemI.comments_good_count
-								itemI.comments_good_count = itemJ.comments_good_count
-								itemJ.comments_good_count = item1
-								let item2 = itemI.comments_count
-								itemI.comments_count = itemJ.comments_count
-								itemJ.comments_count = item2
-								let itemArr = arr[i]
-								arr[i] = arr[j]
-								arr[j] = itemArr
-							}
-						}
-					}
 					if(e[0].top){
-						this.data = arr.reverse()
+						all = 'desc'
 					}else{
-						this.data = arr
+						all = 'asc'
 					}
+					uni.request({
+						url:"http://ceshi3.dishait.cn/api/goods/search",
+						data:{
+							title:this.value,
+							page:1,
+							all:all
+						},
+						method:"POST",
+					}).then(res=>{
+						this.data = res[1].data.data
+					})
 				}
 				if(e[1].sele){
-					let arr = JSON.parse(JSON.stringify(this.data))
-					for (let i in this.data) {
-						let itemI = this.data[i]
-						for (let j = i; j < this.data.length; j++) {
-							let itemJ = this.data[j]
-							if(itemI.comments_count<itemJ.comments_count){
-								let item = itemI.comments_count
-								itemI.comments_count = itemJ.comments_count
-								itemJ.comments_count = item
-								let itemArr = arr[i]
-								arr[i] = arr[j]
-								arr[j] = itemArr
-							}
-						}
-					}
 					if(e[1].top){
-						this.data = arr.reverse()
+						all = 'asc'
 					}else{
-						this.data = arr
+						all = 'desc'
 					}
+					uni.request({
+						url:"http://ceshi3.dishait.cn/api/goods/search",
+						data:{
+							title:this.value,
+							page:1,
+							sale_count:all
+						},
+						method:"POST",
+					}).then(res=>{
+						this.data = res[1].data.data
+					})
 				}
 				if(e[2].sele){
-					let arr = JSON.parse(JSON.stringify(this.data))
-					for (let i in this.data) {
-						let itemI = this.data[i]
-						for (let j = i; j < this.data.length; j++) {
-							let itemJ = this.data[j]
-							if(itemI.min_price<itemJ.min_price){
-								let item = itemI.min_price
-								itemI.min_price = itemJ.min_price
-								itemJ.min_price = item
-								let itemArr = arr[i]
-								arr[i] = arr[j]
-								arr[j] = itemArr
-							}
-						}
-					}
 					if(e[2].top){
-						this.data = arr.reverse()
+						all = 'asc'
 					}else{
-						this.data = arr
+						all = 'desc'
 					}
+					uni.request({
+						url:"http://ceshi3.dishait.cn/api/goods/search",
+						data:{
+							title:this.value,
+							page:1,
+							min_price:all
+						},
+						method:"POST",
+					}).then(res=>{
+						this.data = res[1].data.data
+					})
 				}
 			},
 			sele(index){ // 点击历史搜索即可立即搜索
@@ -137,6 +121,7 @@
 			},
 			changeValue(e){ // 当输入内容是 改变 this.value 的值
 				this.value = e
+				this.addSelect(e)
 			},
 			back(){
 				if(this.show){
@@ -148,7 +133,10 @@
 			},
 			seleOne(){
 				this.seekSele = true
-				this.show = unll
+				// this.show = unll
+			},
+			vanish(e){
+				this.seekSele = false
 			}
 		},
 		components:{
