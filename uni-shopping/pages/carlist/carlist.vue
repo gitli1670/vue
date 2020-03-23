@@ -1,9 +1,11 @@
 <template>
 	<view class="carlist">
-		<view class="navtop" :class="[!editorColle?'.hover':'']" @click="handleEditor">
-			<text>{{editorColle?"编辑":"完成"}}</text>
+		<view style="width: 100%;height: 80upx;"></view>
+		<view class="navtop" :class="[!editorColle?'.hover':'']">
+			<view class="title-font">购物车</view>
+			<view class="titleEdi"><text @click="handleEditor">{{editorColle?"编辑":"完成"}}</text></view>
 		</view>
-		<scroll-view scroll-y style="height:930upx;">
+		<scroll-view scroll-y style="height:986upx;">
 			<view class="empty" v-if="carempty">
 				<view class="emptycontent">
 					<view class="caricon">
@@ -23,7 +25,7 @@
 					<view class="selecradio">
 						<view class="radio-select">
 							<image v-if="item.checked" @click="handleSelectRadio(index)" src="../../static/img-carlist/select-open.png"></image>
-								<image v-else @click="handleSelectRadio(index)" src="../../static/img-carlist/select_default.png"></image>
+							<image v-else @click="handleSelectRadio(index)" src="../../static/img-carlist/select_default.png"></image>
 						</view>
 					</view>
 					<view class="shopic">
@@ -37,8 +39,7 @@
 						<view class="intr">
 							{{item.title}}
 						</view>
-						<!-- 点击编辑添加背景样式和下拉图标 -->
-						<!-- 未点击编辑时没有样式和下拉icon 并且不可以点击-->
+						<!-- 点击编辑给规格添加背景样式和下拉图标 -->
 						<view class="format" v-if="versionSelection">
 							<view class="skus">
 								<!-- 选中的版本 -->
@@ -50,6 +51,7 @@
 							<view class="skus">
 								<!-- 已选中的版本格式 -->
 								{{item.skusText}}
+								
 							</view>
 							<view class="skusarrow" v-show="!versionSelection">
 								<view class="arrow">
@@ -79,17 +81,27 @@
 					为你推荐
 				</view>
 				<view class="buy">
-					<view class="border"></view> 
+					<view class="border"></view>
 					<view class="buypeople">
 						买的人还买了
 					</view>
-					<view class="border"></view> 
+					<view class="border"></view>
 				</view>
 			</guess-like>
 			<!-- 为你推荐 -->
-			
+
 			<!-- 弹窗 -->
-			<popup-select :fixd="fixd" :carList='carLists[ind]' :selectCarListConfig="selectCarListConfig" @handleCloseCar='handleCloseFixd'></popup-select>
+			<!-- fixd是否显示弹窗 
+					popupWindow:city:收货地址/service:服务说明/buycar:规格加入购物车
+					 carList:发送当前点击的-->
+			<popup-select :fixd="fixd" 
+							:popupWindow='popupWindow' 
+							:carList='carLists[ind]' 
+							:selectCarListConfig="selectCarListConfig"
+							@ChangeActiveType='ChangeActiveType' 
+							@handleCloseCar='handleCloseFixd' 
+							>
+			</popup-select>
 			<!-- 弹窗 -->
 		</scroll-view>
 		<view class="all-price">
@@ -98,7 +110,7 @@
 				<!--全选按钮-->
 				<view class="radio-select">
 					<image v-if="selectAll" @click="handleSelectAll" src="../../static/img-carlist/select-open.png"></image>
-						<image v-else @click="handleSelectAll" src="../../static/img-carlist/select_default.png"></image>
+					<image v-else @click="handleSelectAll" src="../../static/img-carlist/select_default.png"></image>
 				</view>
 			</view>
 			<view class="com" v-if="editorColle">
@@ -120,28 +132,25 @@
 				</view>
 			</view>
 		</view>
-		
-		<!-- ===================================== -->
-		<view style="height:88upx;width: 100%;"></view>
-		<view class="mark" v-show="fixd" @click="handleCloseFixd"></view>
 	</view>
 </template>
 
 <script>
-	import GuessLike from '../../components/GuessLike/GuessLike.vue';  //为你推荐
-	import PopupSelect from '../../components/PopupSelect/PopupSelect.vue';  //弹窗
-	export default { 
+	import GuessLike from '../../components/GuessLike/GuessLike.vue'; //为你推荐
+	import PopupSelect from '../../components/PopupSelect/PopupSelect.vue'; //弹窗
+	export default {
 		data() {
 			return {
 				carLists: [], //商品列表数据
-				editorColle: true, //编辑 完成 / 是否 合计 / 收藏、删除
-				versionSelection: true, //是否显示版本选择 / 样式
+				editorColle: true, //点击编辑 false显示删除和移入收藏
+				versionSelection: true, //是否显示规格 样式
 				selectAll: false, //是否全选  true为否
 				carempty: false, //购物车是否为空展示
-				money : 0,  //总计
-				fixd : false,  //点击编辑显示的选项配置按钮弹窗
-				selectCarListConfig : null, //向弹窗组件发送列表数据
-				ind : 0,  //点击选项后传给弹窗组件当前的数据
+				money: 0, //总计
+				fixd: false, //点击编辑显示规格样式和弹窗
+				selectCarListConfig: null, //点击规格向弹窗组件发送当前列表数据的所有规格
+				ind: 0, //点击选项后传给弹窗组件当前的数据
+				popupWindow: null,  //弹窗商品规格  =3
 			}
 		},
 		methods: {
@@ -150,27 +159,21 @@
 				 * 渲染商品列表
 				 */
 				let that = this;
-				uni.showLoading({  //渲染完成前显示
-					title:'加载ing',
-					mask:true
+				uni.showLoading({ //渲染完成前显示
+					title: '加载ing',
+					mask: true
 				})
-				uni.getStorage({
-					key:'token'
-				}).then((res)=>{
-					if(res[1]){
-						uni.request({  //请求购物车列表
-							url: 'http://ceshi3.dishait.cn/api/cart',
-							header: {
-								token: "7dadcf0161710b5256265ed25cb7873b3fd61633"
-							},
-							success: (res) => {//将获取到的购物车列表存放到carLists中
-									that.carLists = res.data.data;
-									if(res.data.data.length == 0){
-										that.carempty = true;
-									}
-							uni.hideLoading()  //渲染完成后隐藏
-							}
-						})
+				uni.request({ //请求购物车列表
+					url: 'http://ceshi3.dishait.cn/api/cart',
+					header: {
+						token: "7dadcf0161710b5256265ed25cb7873b3fd61633"
+					},
+					success: (res) => { //将获取到的购物车列表存放到carLists中
+						that.carLists = res.data.data;
+						if (res.data.data.length == 0) {
+							that.carempty = true;
+						}
+						uni.hideLoading() //渲染完成后隐藏
 					}
 				})
 			},
@@ -181,7 +184,7 @@
 				let that = this;
 				this.editorColle = !this.editorColle;
 				this.versionSelection = !this.versionSelection;
-				if(this.carLists.length == 0){  //列表为空时全选按钮为false
+				if (this.carLists.length == 0) { //列表为空时全选按钮为false
 					this.selectAll = false;
 				}
 			},
@@ -199,7 +202,7 @@
 				that.selectAll = !that.selectAll;
 				this.comBined();
 			},
-			handleSelectAll(){
+			handleSelectAll() {
 				/** 
 				 * 全选选中时 让所有商品也选中
 				 */
@@ -208,64 +211,94 @@
 				for (let i in that.carLists) {
 					that.carLists[i].checked = that.selectAll;
 				}
-				if(this.carLists.length == 0){  //列表为空时全选按钮为false
+				if (this.carLists.length == 0) { //列表为空时全选按钮为false
 					this.selectAll = false;
 				}
 				this.comBined();
 			},
-			reduction (e){
+			reduction(e) {
 				/** 
 				 * 减少数量 当数量等于最小值时就等于最小值
 				 */
 				let that = this;
-				if(that.carLists[e].num > that.carLists[e].minnum){
+				if (that.carLists[e].num > that.carLists[e].minnum) {
 					that.carLists[e].num = that.carLists[e].num - 1;
 					this.comBined();
 				}
+				let number = parseInt(that.carLists[e].num);
+				let id = that.carLists[e].id;
+				uni.request({
+					url: `http://ceshi3.dishait.cn/api/cart/updatenumber/${id}`,
+					method: 'POST',
+					header: {
+						token: '7dadcf0161710b5256265ed25cb7873b3fd61633'
+					},
+					data: {
+						num: number
+					},
+					success: (res) => {
+						// console.log(res)
+					}
+				})
 			},
-			add(e){
+			add(e) {
 				/** 
 				 * 点击添加数量
 				 */
 				let that = this;
-				if(that.carLists[e].num < that.carLists[e].maxnum){
-					that.carLists[e].num ++;
+				if (that.carLists[e].num < that.carLists[e].maxnum) {
+					that.carLists[e].num++;
 					this.comBined();
 				}
+				let number = parseInt(that.carLists[e].num);
+				let id = that.carLists[e].id;
+				uni.request({
+					url: `http://ceshi3.dishait.cn/api/cart/updatenumber/${id}`,
+					method: 'POST',
+					header: {
+						token: '7dadcf0161710b5256265ed25cb7873b3fd61633'
+					},
+					data: {
+						num: number
+					},
+					success: (res) => {
+						// console.log(res)
+					}
+				})
 			},
-			comBined(){
+			comBined() {
 				/** 
 				 * 计算总计价格
 				 */
 				let nmb = 0;
 				for (var j = 0; j < this.carLists.length; j++) {
-					if(this.carLists[j].checked){
+					if (this.carLists[j].checked) {  //计算选中商品
 						for (var i = 0; i < this.carLists.length; i++) {
-							if(this.carLists[i].checked){
+							if (this.carLists[i].checked) {
 								nmb += this.carLists[i].pprice * this.carLists[i].num;
 								this.money = parseFloat(nmb.toFixed(2));
 							}
 						}
-						return
+						return this.money;
 					}
 				}
-				this.money = 0;
+				this.money = 0;  //所有商品都未选中是清零
 			},
-			handleDel(){
+			handleDel() {
 				/** 
 				 * 点击删除选中列表
 				 */
 				let that = this;
 				for (var i = 0; i < that.carLists.length; i++) {
-					if(that.carLists[i].checked){
+					if (that.carLists[i].checked) {
 						uni.request({
-							url:'http://ceshi3.dishait.cn/api/cart/delete',
-							method:'POST',
-							header:{
-								token : '7dadcf0161710b5256265ed25cb7873b3fd61633'
+							url: 'http://ceshi3.dishait.cn/api/cart/delete',
+							method: 'POST',
+							header: {
+								token: '7dadcf0161710b5256265ed25cb7873b3fd61633'
 							},
-							data:{
-								shop_ids : that.carLists[i].id
+							data: {
+								shop_ids: that.carLists[i].id
 							},
 							success: (res) => {
 								this.carList();
@@ -274,33 +307,52 @@
 					}
 				}
 			},
-			handleSkus(e){  
+			handleSkus(e) {
 				/** e 获取到当前数据下标
 				 * 点击选项弹窗
 				 */
 				uni.showLoading({
-					title:'加载ing',
-					mask:true
+					title: '加载ing',
+					mask: true
 				})
-				this.ind = e;
-				this.fixd = true;
-				let LIstId = this.carLists[e].id;
-				uni.request({  //发送点击的数据id获取库存
+				const _this = this;
+				_this.fixd = true; //点击规格向子组件传值true来显示弹窗
+				_this.popupWindow = 3; //弹窗出规格
+				_this.ind = e; //获取到当前点击下标
+				let LIstId = _this.carLists[e].id; //获取到当前点击的id
+				uni.request({
 					url:`http://ceshi3.dishait.cn/api/cart/${LIstId}/sku`,
 					header:{
 						token : '7dadcf0161710b5256265ed25cb7873b3fd61633'
 					},
-					success:(res) => {
-						this.selectCarListConfig = res.data.data;
-						uni.hideLoading();
+					success: (res) => {
+						_this.selectCarListConfig = res.data.data;
+						let skus = _this.carLists[e].skusText.split("\,");  //将父组件传过来的规格分隔
+						_this.selectCarListConfig.goods_skus_card.forEach((data,i) => {
+							data.goods_skus_card_value.map(x => {
+								for (let sku of skus) {
+									if(x.value == sku){  //如果规格的值等于skus 就让此规格为选中状态
+										return Object.assign(x,{bool:true})
+									}
+								}
+								return Object.assign(x,{bool:false})
+							})
+						})
+						uni.hideLoading()
 					}
 				})
 			},
-			handleCloseFixd(){
+			handleCloseFixd(e, data) {
 				/** 
-				 * 点击mark隐藏蒙版和弹窗
+				 * 弹窗组件中点击加入购物车/选择新的地址/确定 隐藏弹窗
 				 */
-				this.fixd = false;
+				this.fixd = e;
+				// console.log(this.selectCarListConfig)
+				// console.log(this.carLists)
+				// this.selectCarListConfig = data;
+			},
+			ChangeActiveType(data) {
+				this.selectCarListConfig = data;
 			}
 		},
 		components: {
@@ -309,7 +361,6 @@
 		},
 		onLoad() {
 			this.carList();
-			
 		}
 	}
 </script>
