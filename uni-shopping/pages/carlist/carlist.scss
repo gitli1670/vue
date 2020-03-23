@@ -1,14 +1,6 @@
 $text-color : #FD6801;
 $text-color-active:#F2AA78;  //声明的字体被选中的颜色
 $background-text-color:#FD6801;  //声明价钱字体颜色和加入
-.mark{
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		z-index: 20;
-		background: rgba(0, 0, 0, 0.6);
-	}
 .carlist {
 	font-size: 28upx;
 	position: relative;
@@ -59,7 +51,15 @@ $background-text-color:#FD6801;  //声明价钱字体颜色和加入
 		margin: auto;
 		line-height: 80upx;
 		border-bottom: 2px solid #F1F1F1;
-		text-align: right;
+		display: flex;
+		.title-font{
+			width: 60%;
+			text-align: right;
+		}
+		.titleEdi{
+			width: 38%;
+			text-align: right;
+		}
 	}
 	.navtop.hover{
 		border-bottom: 2px solid transparent;
@@ -142,7 +142,6 @@ $background-text-color:#FD6801;  //声明价钱字体颜色和加入
 					font-size: 24upx;
 					display: flex;
 					justify-content: space-between;
-					border-radius: 8upx;
 					padding: 8upx 10upx;
 					margin: 15upx 0;
 					.skusarrow{

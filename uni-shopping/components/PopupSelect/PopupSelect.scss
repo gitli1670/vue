@@ -5,10 +5,10 @@ $background-text-color:#FD6801;  //声明价钱字体颜色和加入购物车的
 	transition: all 0.5s;
 	bottom: 0upx;
 }
-	.mark{
+.mark{  //蒙版
 		width: 100%;
 		height: 100%;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		z-index: 20;
 		background: rgba(0, 0, 0, 0.6);
@@ -22,9 +22,13 @@ $background-text-color:#FD6801;  //声明价钱字体颜色和加入购物车的
 	z-index: 100;
 	background: white;
 	border-radius: 20upx 20upx 0 0;
-	& &-select{//选项内容
+	//===========================规格 加入购物车
+	.popup-content{
 		width: 93%;
+		height: 842upx;
 		margin: auto;
+	}
+	.popup-select{//选项内容
 		&-pic-price{  //价钱和已选配置
 			display: flex;
 			justify-content: space-between;
@@ -70,7 +74,6 @@ $background-text-color:#FD6801;  //声明价钱字体颜色和加入购物车的
 			}
 			&-option{
 				display: flex;
-				// justify-content: space-between;
 				.option{
 					margin-right: 30upx;
 					border-radius: $uni-border-radius-base;
@@ -112,10 +115,62 @@ $background-text-color:#FD6801;  //声明价钱字体颜色和加入购物车的
 			}
 		}
 	}
-		.joincar{  //加入购物车
+	
+	// =================================收货地址
+	.city{
+		&-font{
+			height: 88upx;
+			line-height: 88upx;
 			text-align: center;
-			padding: 30upx 0;
-			background: $background-text-color;
-			color: white;
+			border-bottom: 1px solid #F1F1F1;
 		}
+		&-address{
+			height: 70upx;
+			line-height: 70upx;
+			display: flex;
+			border-bottom: 1px solid red;
+			.city-icon{
+				width: 35upx;
+				height: 35upx;
+				margin-top: 10upx;
+			}
+		}
+	}
+	
+	// ===========================服务说明
+	.service{
+		&-font{
+			height: 88upx;
+			line-height: 88upx;
+			text-align: center;
+			border-bottom: 1px solid #F1F1F1;
+		}
+		&-des{
+			display: flex;
+			margin-top: 20upx;
+			&-great{
+				width: 28upx;
+				height: 28upx;
+				margin-top: 25upx;
+			}
+			&-font{
+				height: 75upx;
+				line-height: 75upx;
+				text-indent: 1em;
+			}
+			&-desfont{
+				padding-bottom: 20upx;
+				color: #D2D2D2;
+				font-size: 24upx;
+				text-indent: 55upx;
+			}
+		}
+	}
+	
+	.joincar{  //加入购物车
+		text-align: center;
+		padding: 30upx 0;
+		background: $background-text-color;
+		color: white;
+	}
 }
