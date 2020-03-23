@@ -114,32 +114,167 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
-    return {};
-
-
+    return {
+      optionIndex: 0 //规格下标
+    };
   },
   props: {
-    fixd: {
+    fixd: { //是否显示弹窗
       type: Boolean },
 
-    selectCarListConfig: {
-      type: Object } },
+    selectCarListConfig: { //获取当前点击数据的所有规格
+      type: Object },
 
+    carList: { //规格选项传过来的当前点击数据
+      type: Object },
 
-  methods: {
-    handleJoinCar: function handleJoinCar() {
-      console.log(this.$props.selectCarListConfig);
+    popupWindow: { //根据父组件传过来的数字显示弹窗
+      type: Number //1收货地址 2服务说明 3购物车
     } },
 
-  created: function created() {
+  methods: {
+    handleSelect: function handleSelect(item, data, e) {
+      /** 
+                                                         * 点击规格选项添加样式
+                                                         * @param {Object Array} item 点击规格类型的数据
+                                                         * @param {ObJect} data 点击规格下面所属选项的数据
+                                                         * @param {Number} e    点击规格下面所属选项的下标
+                                                         */
+      var _this = this;
+      item.goods_skus_card_value.forEach(function (e, i) {//初始化为false
+        e.bool = false;
+      });
+      data.bool = true;
+      _this.$emit('ChangeActiveType', this.selectCarListConfig);
+    },
+    handleHidMak: function handleHidMak() {
+      /**
+                                            * 点击蒙版隐藏弹窗 不操作
+                                            */
+      this.$emit('handleCloseCar', false);
+    },
+    handleSure: function handleSure(e, des) {
+      /** 
+                                              * 隐藏弹窗组件 点击收货地址：选择新的地址/服务说明：确定/购物车：加入购物车
+                                              */
+      var _this = this;
+      var sum = 0;
+      _this.selectCarListConfig.goods_skus_card.findIndex(function (x) {//pand
+        x.goods_skus_card_value.findIndex(function (item) {
+          if (item.bool) {
+            sum++;
+          }
+        });
+      });
 
-  },
-  onLoad: function onLoad() {
+      if (sum == 1 || sum == 0) {//如果sum == 1的话代表用户只选择了一个规格所有是单规格
+        sum = 0;
+      } else {
+        sum = 1;
+      }
+      if (des == 'AddCar') {//判断点击的是加入购物车 执行
+        // uni.request({
+        // 	url:'http://ceshi3.dishait.cn/api/cart',
+        // 	header:{
+        // 		token : '7dadcf0161710b5256265ed25cb7873b3fd61633'
+        // 	},
+        // 	methods:'POST',
+        // 	data:{
+        // 		shop_id:_this.selectCarListConfig.id,
+        // 		skus_type:sum,
+        // 		num:_this.carList.num
+        // 	}
+        // })
 
-  } };exports.default = _default;
+        // uni.request({
+        // 	url : `http://ceshi3.dishait.cn/api/cart/?id=${_this.selectCarListConfig.id}`,
+        // 	methods : 'POST',
+        // 	header : {
+        // 		token : '7dadcf0161710b5256265ed25cb7873b3fd61633'
+        // 	},
+        // 	data :{
+        // 		shop_id : _this.carList.id,
+        // 		num : _this.carList.num
+        // 	},
+        // 	success : res => {
+        // 		console.log(123)
+        // 	}
+        // })
+      }
+      _this.$emit('handleCloseCar', e, _this.selectCarListConfig);
+    } } };exports.default = _default;
 
 /***/ }),
 

@@ -24,14 +24,6 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.mark.data-v-2612f6e9 {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  z-index: 20;
-  background: rgba(0, 0, 0, 0.6);
-}
 .carlist.data-v-2612f6e9 {
   font-size: 28rpx;
   position: relative;
@@ -84,7 +76,18 @@
     margin: auto;
     line-height: 80rpx;
     border-bottom: 2px solid #F1F1F1;
-    text-align: right;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.carlist .navtop .title-font.data-v-2612f6e9 {
+      width: 60%;
+      text-align: right;
+}
+.carlist .navtop .titleEdi.data-v-2612f6e9 {
+      width: 38%;
+      text-align: right;
 }
 .carlist .navtop.hover.data-v-2612f6e9 {
     border-bottom: 2px solid transparent;
@@ -178,7 +181,6 @@
           -webkit-justify-content: space-between;
               -ms-flex-pack: justify;
                   justify-content: space-between;
-          border-radius: 8rpx;
           padding: 8rpx 10rpx;
           margin: 15rpx 0;
 }

@@ -149,6 +149,7 @@ var _default = {
         method: "POST",
         success: function success(res) {
           that.data = res.data.data;
+          console.log(res.data.data);
         } });
 
       if (e != "") {
