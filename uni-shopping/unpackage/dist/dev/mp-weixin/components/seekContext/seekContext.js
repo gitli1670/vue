@@ -199,7 +199,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('seleOne');
     },
     look: function look(index) {
-      // // 添加商品
+      // 添加商品
       // uni.getStorage({
       // 	key:'token'
       // }).then((res)=>{

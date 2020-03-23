@@ -236,19 +236,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
 //弹窗
 var _default = {
   data: function data() {
     return {
       carLists: [], //商品列表数据
-      editorColle: true, //编辑 完成 / 是否 合计 / 收藏、删除
-      versionSelection: true, //是否显示版本选择 / 样式
+      editorColle: true, //点击编辑 false显示删除和移入收藏
+      versionSelection: true, //是否显示规格 样式
       selectAll: false, //是否全选  true为否
       carempty: false, //购物车是否为空展示
       money: 0, //总计
-      fixd: false, //点击编辑显示的选项配置按钮弹窗
-      selectCarListConfig: null, //向弹窗组件发送列表数据
-      ind: 0 //点击选项后传给弹窗组件当前的数据
+      fixd: false, //点击编辑显示规格样式和弹窗
+      selectCarListConfig: null, //点击规格向弹窗组件发送当前列表数据的所有规格
+      ind: 0, //点击选项后传给弹窗组件当前的数据
+      popupWindow: null //弹窗商品规格  =3
     };
   },
   methods: {
@@ -261,25 +270,19 @@ var _default = {
         title: '加载ing',
         mask: true });
 
-      uni.getStorage({
-        key: 'token' }).
-      then(function (res) {
-        if (res[1]) {
-          uni.request({ //请求购物车列表
-            url: 'http://ceshi3.dishait.cn/api/cart',
-            header: {
-              token: "7dadcf0161710b5256265ed25cb7873b3fd61633" },
+      uni.request({ //请求购物车列表
+        url: 'http://ceshi3.dishait.cn/api/cart',
+        header: {
+          token: "7dadcf0161710b5256265ed25cb7873b3fd61633" },
 
-            success: function success(res) {//将获取到的购物车列表存放到carLists中
-              that.carLists = res.data.data;
-              if (res.data.data.length == 0) {
-                that.carempty = true;
-              }
-              uni.hideLoading(); //渲染完成后隐藏
-            } });
+        success: function success(res) {//将获取到的购物车列表存放到carLists中
+          that.carLists = res.data.data;
+          if (res.data.data.length == 0) {
+            that.carempty = true;
+          }
+          uni.hideLoading(); //渲染完成后隐藏
+        } });
 
-        }
-      });
     },
     handleEditor: function handleEditor() {
       /** 
@@ -329,6 +332,21 @@ var _default = {
         that.carLists[e].num = that.carLists[e].num - 1;
         this.comBined();
       }
+      var number = parseInt(that.carLists[e].num);
+      var id = that.carLists[e].id;
+      uni.request({
+        url: "http://ceshi3.dishait.cn/api/cart/updatenumber/".concat(id),
+        method: 'POST',
+        header: {
+          token: '7dadcf0161710b5256265ed25cb7873b3fd61633' },
+
+        data: {
+          num: number },
+
+        success: function success(res) {
+          // console.log(res)
+        } });
+
     },
     add: function add(e) {
       /** 
@@ -339,6 +357,21 @@ var _default = {
         that.carLists[e].num++;
         this.comBined();
       }
+      var number = parseInt(that.carLists[e].num);
+      var id = that.carLists[e].id;
+      uni.request({
+        url: "http://ceshi3.dishait.cn/api/cart/updatenumber/".concat(id),
+        method: 'POST',
+        header: {
+          token: '7dadcf0161710b5256265ed25cb7873b3fd61633' },
+
+        data: {
+          num: number },
+
+        success: function success(res) {
+          // console.log(res)
+        } });
+
     },
     comBined: function comBined() {
       /** 
@@ -346,22 +379,22 @@ var _default = {
                                     */
       var nmb = 0;
       for (var j = 0; j < this.carLists.length; j++) {
-        if (this.carLists[j].checked) {
+        if (this.carLists[j].checked) {//计算选中商品
           for (var i = 0; i < this.carLists.length; i++) {
             if (this.carLists[i].checked) {
               nmb += this.carLists[i].pprice * this.carLists[i].num;
               this.money = parseFloat(nmb.toFixed(2));
             }
           }
-          return;
+          return this.money;
         }
       }
-      this.money = 0;
+      this.money = 0; //所有商品都未选中是清零
     },
-    handleDel: function handleDel() {var _this = this;
+    handleDel: function handleDel() {var _this2 = this;
       /** 
-                                                        * 点击删除选中列表
-                                                        */
+                                                         * 点击删除选中列表
+                                                         */
       var that = this;
       for (var i = 0; i < that.carLists.length; i++) {
         if (that.carLists[i].checked) {
@@ -375,39 +408,58 @@ var _default = {
               shop_ids: that.carLists[i].id },
 
             success: function success(res) {
-              _this.carList();
+              _this2.carList();
             } });
 
         }
       }
     },
-    handleSkus: function handleSkus(e) {var _this2 = this;
+    handleSkus: function handleSkus(e) {
       /** e 获取到当前数据下标
-                                                            * 点击选项弹窗
-                                                            */
+                                         * 点击选项弹窗
+                                         */
       uni.showLoading({
         title: '加载ing',
         mask: true });
 
-      this.ind = e;
-      this.fixd = true;
-      var LIstId = this.carLists[e].id;
-      uni.request({ //发送点击的数据id获取库存
+      var _this = this;
+      _this.fixd = true; //点击规格向子组件传值true来显示弹窗
+      _this.popupWindow = 3; //弹窗出规格
+      _this.ind = e; //获取到当前点击下标
+      var LIstId = _this.carLists[e].id; //获取到当前点击的id
+      uni.request({
         url: "http://ceshi3.dishait.cn/api/cart/".concat(LIstId, "/sku"),
         header: {
           token: '7dadcf0161710b5256265ed25cb7873b3fd61633' },
 
         success: function success(res) {
-          _this2.selectCarListConfig = res.data.data;
+          _this.selectCarListConfig = res.data.data;
+          var skus = _this.carLists[e].skusText.split("\,"); //将父组件传过来的规格分隔
+          _this.selectCarListConfig.goods_skus_card.forEach(function (data, i) {
+            data.goods_skus_card_value.map(function (x) {var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {
+                for (var _iterator = skus[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var sku = _step.value;
+                  if (x.value == sku) {//如果规格的值等于skus 就让此规格为选中状态
+                    return Object.assign(x, { bool: true });
+                  }
+                }} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return != null) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}
+              return Object.assign(x, { bool: false });
+            });
+          });
           uni.hideLoading();
         } });
 
     },
-    handleCloseFixd: function handleCloseFixd() {
+    handleCloseFixd: function handleCloseFixd(e, data) {
       /** 
-                                                  * 点击mark隐藏蒙版和弹窗
-                                                  */
-      this.fixd = false;
+                                                         * 弹窗组件中点击加入购物车/选择新的地址/确定 隐藏弹窗
+                                                         */
+      this.fixd = e;
+      // console.log(this.selectCarListConfig)
+      // console.log(this.carLists)
+      // this.selectCarListConfig = data;
+    },
+    ChangeActiveType: function ChangeActiveType(data) {
+      this.selectCarListConfig = data;
     } },
 
   components: {
@@ -416,7 +468,6 @@ var _default = {
 
   onLoad: function onLoad() {
     this.carList();
-
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

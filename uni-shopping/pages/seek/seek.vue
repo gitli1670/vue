@@ -44,6 +44,7 @@
 					method:"POST",
 					success(res){
 						that.data = res.data.data
+						console.log(res.data.data)
 					}
 				})
 				if(e != ""){
