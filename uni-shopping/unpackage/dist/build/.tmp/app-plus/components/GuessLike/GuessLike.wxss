@@ -24,15 +24,15 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.guesslike.data-v-2d201806 {
+.guesslike.data-v-aca51a64 {
   width: 100%;
   height: 1860rpx;
 }
-.guesslike image.data-v-2d201806 {
+.guesslike image.data-v-aca51a64 {
     width: 100%;
     height: 100%;
 }
-.guesslike .guess-like-list.data-v-2d201806 {
+.guesslike .guess-like-list.data-v-aca51a64 {
     height: auto;
     display: -webkit-box;
     display: -webkit-flex;
@@ -43,15 +43,15 @@
     -webkit-flex-wrap: wrap;
             flex-wrap: wrap;
 }
-.guesslike .guess-like-list .list-left.data-v-2d201806 {
+.guesslike .guess-like-list .list-left.data-v-aca51a64 {
       width: 49%;
       height: 550rpx;
 }
-.guesslike .guess-like-list .list-left .guess-like-pic.data-v-2d201806 {
+.guesslike .guess-like-list .list-left .guess-like-pic.data-v-aca51a64 {
         width: 100%;
         height: 360rpx;
 }
-.guesslike .guess-like-list .list-left .describe.data-v-2d201806, .guesslike .guess-like-list .list-left .modles.data-v-2d201806, .guesslike .guess-like-list .list-left .price.data-v-2d201806 {
+.guesslike .guess-like-list .list-left .describe.data-v-aca51a64, .guesslike .guess-like-list .list-left .modles.data-v-aca51a64, .guesslike .guess-like-list .list-left .price.data-v-aca51a64 {
         width: 100%;
         height: 60rpx;
         line-height: 60rpx;
@@ -59,20 +59,20 @@
         overflow: hidden;
         text-overflow: ellipsis;
 }
-.guesslike .guess-like-list .list-left .modles.data-v-2d201806 {
+.guesslike .guess-like-list .list-left .modles.data-v-aca51a64 {
         font-size: 24rpx;
         color: #808080;
 }
-.guesslike .guess-like-list .list-left .price .symbol.data-v-2d201806 {
+.guesslike .guess-like-list .list-left .price .symbol.data-v-aca51a64 {
         color: red;
         font-size: 25rpx;
 }
-.guesslike .guess-like-list .list-left .price .original.data-v-2d201806 {
+.guesslike .guess-like-list .list-left .price .original.data-v-aca51a64 {
         color: #DC3546;
         font-size: 36rpx;
         margin-right: 10rpx;
 }
-.guesslike .guess-like-list .list-left .price .discount.data-v-2d201806 {
+.guesslike .guess-like-list .list-left .price .discount.data-v-aca51a64 {
         font-size: 20rpx;
         text-decoration: line-through;
         color: #808080;

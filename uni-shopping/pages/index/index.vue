@@ -44,12 +44,10 @@
 			})
 		},
 		mounted() {
-			// let music = uni.getBackgroundAudioManager()
-			// music.src = 'http://isure.stream.qqmusic.qq.com/C400003Y7RNa3SUPmm.m4a?guid=5166686209&vkey=8D289AF3F95B3FBC8900FABE82B5A0E2007C794C1EED7325B8EC22D794C0BEC5C8BDDD70B40A9D35473894B6F4BA604131157D92DD2DF9A1&uin=0&fromtag=66'
-			// music.startTime = 4.1
-			// music.title = "backMusic"
-			// music.duration = 4.8
-			// music.onCanplay(()=>{})
+			let music = uni.getBackgroundAudioManager()
+			music.src = 'http://isure.stream.qqmusic.qq.com/C400003Y7RNa3SUPmm.m4a?guid=5166686209&vkey=8D289AF3F95B3FBC8900FABE82B5A0E2007C794C1EED7325B8EC22D794C0BEC5C8BDDD70B40A9D35473894B6F4BA604131157D92DD2DF9A1&uin=0&fromtag=66'
+			music.startTime = 4.1
+			music.title = "backMusic"
 		},
 		methods: {
 			cliswiper(index){ // 点击滑块切换
