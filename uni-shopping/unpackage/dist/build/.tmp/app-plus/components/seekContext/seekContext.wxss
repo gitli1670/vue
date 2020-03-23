@@ -1,0 +1,22 @@
+
+view.data-v-f8bf089c,scroll-view.data-v-f8bf089c,swiper.data-v-f8bf089c,swiper-item.data-v-f8bf089c{box-sizing: border-box;}
+#main.data-v-f8bf089c{margin: 0rpx;}
+.img.data-v-f8bf089c{width: 100%;height: 100%;}
+.top.data-v-f8bf089c{width: 100%;height: 120rpx;border-top: 2rpx solid #F3F3F3;border-bottom: 2rpx solid #F3F3F3;padding: 30rpx 0;display: -webkit-box;display: -webkit-flex;display: flex;-webkit-box-pack: justify;-webkit-justify-content: space-between;justify-content: space-between;margin-top: 20rpx;}
+.top>view.data-v-f8bf089c{text-align: center;line-height: 60rpx;font-size: 30rpx;margin: auto;-webkit-box-pack: center;-webkit-justify-content: center;justify-content: center;}
+.top .top_one.data-v-f8bf089c{display:-webkit-box;display:-webkit-flex;display:flex;}
+.top .top_one>view.data-v-f8bf089c:last-child{margin-top: -10rpx;margin-left: 10rpx;}
+.top .top_one>view:last-child view.data-v-f8bf089c{width: 30rpx;height: 20rpx;margin: 0 auto;}
+.top .top_two.data-v-f8bf089c{color: #FD6801;}
+.shop.data-v-f8bf089c{width: 100%;}
+.shop_noData.data-v-f8bf089c{width: 100%;line-height: 200rpx;text-align: center;font-size: 32rpx;}
+.shop_noData>view.data-v-f8bf089c{display: inline-block;color: #FD6801;}
+.shop_data.data-v-f8bf089c{width: 100%;height: 280rpx;display: -webkit-box;display: -webkit-flex;display: flex;padding: 10rpx;-webkit-box-pack: justify;-webkit-justify-content: space-between;justify-content: space-between;}
+.shop_data>view.data-v-f8bf089c:first-child{width: 35%;height: 240rpx;}
+.shop_data_one.data-v-f8bf089c{width: 64%;}
+.shop_data_one>view.data-v-f8bf089c:nth-child(1){font-size: 32rpx;font-weight: 600;}
+.shop_data_one>view.data-v-f8bf089c:nth-child(2){font-size: 24rpx;color: #767E84;margin: 15rpx 0;height: 66rpx;overflow: hidden;text-overflow:ellipsis;}
+.shop_data_one>view.data-v-f8bf089c:nth-child(3){font-size: 30rpx;color: #FD6801;margin-bottom: 15rpx;}
+.shop_data_one>view.data-v-f8bf089c:nth-child(4){display: -webkit-box;display: -webkit-flex;display: flex;font-size: 24rpx;color: #767E84;}
+.shop_data_one>view:nth-child(4)>view.data-v-f8bf089c:first-child{margin-right: 10rpx;}
+

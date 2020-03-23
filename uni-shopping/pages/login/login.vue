@@ -86,17 +86,18 @@
 									uni.showModal({
 										content: '登录成功',
 										showCancel: false
-									});
-									uni.setStorage({
-										key:"token",
-										data:res.data.data.token
-									})
-									uni.setStorage({
-										key:"name",
-										data:_this.name
-									})
-									uni.switchTab({
-										url:"../index/index"
+									}).then(()=>{
+										uni.setStorage({
+											key:"token",
+											data:res.data.data.token
+										})
+										uni.setStorage({
+											key:"name",
+											data:_this.name
+										})
+										uni.switchTab({
+											url:"../index/index"
+										})
 									})
 								}else{
 									uni.showModal({

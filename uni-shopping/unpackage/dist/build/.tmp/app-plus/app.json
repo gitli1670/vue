@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/seek/seek",
+    "pages/carlist/carlist",
+    "pages/sort/sort",
+    "pages/my/my"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#B4B4B4",
+    "selectedColor": "#FD6801",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/home.png",
+        "selectedIconPath": "static/images/home-Y.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/sort/sort",
+        "iconPath": "static/images/select1.png",
+        "selectedIconPath": "static/images/select2.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/carlist/carlist",
+        "iconPath": "static/images/shopping1.png",
+        "selectedIconPath": "static/images/shopping2.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "static/images/My.png",
+        "selectedIconPath": "static/images/My-Y.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "nvueCompiler": "uni-app",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "uni-shopping",
+  "compilerVersion": "2.6.5",
+  "usingComponents": {}
+}

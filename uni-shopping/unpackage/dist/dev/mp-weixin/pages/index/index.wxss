@@ -68,6 +68,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 全局样式 */
 view.data-v-59c158b4,scroll-view.data-v-59c158b4,swiper.data-v-59c158b4,swiper-item.data-v-59c158b4{box-sizing: border-box;}
 #main.data-v-59c158b4{margin: 0rpx;}
@@ -82,8 +99,8 @@ view.data-v-59c158b4,scroll-view.data-v-59c158b4,swiper.data-v-59c158b4,swiper-i
 /* 滑动部分样式 */
 .context.data-v-59c158b4{width: 100%;}
 .context scroll-view.data-v-59c158b4{white-space: nowrap;width:100%;height: 66rpx;position: fixed;top: 160rpx;z-index: 2;background-color: white;}
-.context scroll-view .scroll_data.data-v-59c158b4{width:100%;height: 56rpx;display: inline-block;width:20%;text-align: center;}
-.context scroll-view .scroll_data>view.data-v-59c158b4{text-align: center;display: inline-block;color: #454545;border-bottom: 6rpx solid #FFFFFF;padding-bottom: 12rpx;font-size: 30rpx;}
+.context scroll-view .scroll_data.data-v-59c158b4{width:100%;height: 66rpx;display: inline-block;width:20%;text-align: center;}
+.context scroll-view .scroll_data>view.data-v-59c158b4{line-height: 1.7;text-align: center;display: inline-block;color: #454545;border-bottom: 6rpx solid #FFFFFF;padding-bottom: 12rpx;font-size: 30rpx;}
 .context scroll-view .scroll_data .view.data-v-59c158b4{color: #FD6801;border-bottom-color:#FD6801;}
 /* 添加class后的样式 */
 .context swiper.data-v-59c158b4{width:100%;height: 3300rpx;}

@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/seek/seek",
-    "pages/carlist/carlist",
     "pages/index/index",
     "pages/login/login",
+    "pages/seek/seek",
+    "pages/carlist/carlist",
     "pages/sort/sort",
     "pages/my/my"
   ],
@@ -47,5 +47,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap2.json"
+  "sitemapLocation": "sitemap73.json"
 }

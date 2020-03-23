@@ -1,10 +1,9 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		
-		{"path": "pages/seek/seek","style":{"navigationStyle":"custom"}},// -------------搜索
-		{"path": "pages/carlist/carlist","style":{"navigationStyle":"custom"}}, // ------购物车
 		{"path": "pages/index/index","style":{"navigationStyle":"custom"}},// -----------首页
 		{"path": "pages/login/login","style":{"navigationStyle":"custom"}},// -----------登录
+		{"path": "pages/seek/seek","style":{"navigationStyle":"custom"}},// -------------搜索
+		{"path": "pages/carlist/carlist","style":{"navigationStyle":"custom"}}, // ------购物车
 		{"path": "pages/sort/sort","style":{"navigationStyle":"custom"}}, // ------------分类
 		{"path": "pages/my/my","style":{"navigationStyle":"custom"}} // -----------------我的
 	],
@@ -42,5 +41,15 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
 	}
 }

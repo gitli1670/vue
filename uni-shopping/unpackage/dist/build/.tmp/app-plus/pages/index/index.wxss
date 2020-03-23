@@ -1,0 +1,99 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 全局样式 */
+view.data-v-44084355,scroll-view.data-v-44084355,swiper.data-v-44084355,swiper-item.data-v-44084355{box-sizing: border-box;}
+#main.data-v-44084355{margin: 0rpx;}
+.img.data-v-44084355{width: 100%;height: 100%;}
+/* 顶部固定定位样式 */
+.top.data-v-44084355{width:100%;height: 80rpx;display: -webkit-box;display: -webkit-flex;display: flex;-webkit-box-pack: justify;-webkit-justify-content: space-between;justify-content: space-between;position: fixed;top: 80rpx;z-index: 2;background-color: white;padding:10rpx 0;}
+.top>view.data-v-44084355:first-child{width: 50rpx;height: 50rpx;margin: auto 10rpx;}
+.top>view.data-v-44084355:last-child{width: 60rpx;height: 60rpx;margin: auto 10rpx;}
+.top .top_con.data-v-44084355{width:580rpx;height:100%;background-color: #F7F7F7;border-radius: 10rpx;display: -webkit-box;display: -webkit-flex;display: flex;}
+.top .top_con>view.data-v-44084355:first-child{width:40rpx;height: 40rpx;margin-top: 15rpx;margin-left: 15rpx;}
+.top .top_con>view.data-v-44084355:last-child{line-height: 2;font-size: 32rpx;color: #D2D2D2;margin: aotu 10rpx;margin-left: 10rpx;}
+/* 滑动部分样式 */
+.context.data-v-44084355{width: 100%;}
+.context scroll-view.data-v-44084355{white-space: nowrap;width:100%;height: 66rpx;position: fixed;top: 160rpx;z-index: 2;background-color: white;}
+.context scroll-view .scroll_data.data-v-44084355{width:100%;height: 66rpx;display: inline-block;width:20%;text-align: center;}
+.context scroll-view .scroll_data>view.data-v-44084355{line-height: 1.7;text-align: center;display: inline-block;color: #454545;border-bottom: 6rpx solid #FFFFFF;padding-bottom: 12rpx;font-size: 30rpx;}
+.context scroll-view .scroll_data .view.data-v-44084355{color: #FD6801;border-bottom-color:#FD6801;}
+/* 添加class后的样式 */
+.context swiper.data-v-44084355{width:100%;height: 3300rpx;}
+.context swiper swiper-item.data-v-44084355{width:100%;height:3000rpx;}
+

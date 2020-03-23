@@ -48,7 +48,9 @@
             /* ios打包配置 */
             "ios" : {},
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         }
     },
     /* 快应用特有相关 */
@@ -78,16 +80,16 @@
                 }
             }
         },
-		"devServer": {
-			"port": 8080,
-			"disableHostCheck": true,
-			"proxy": {
-				"/api": {
-					"target": "http://ceshi3.dishait.cn/api/useraddresses/1",
-					"changeOrigin": true,
-					"secure": false
-				}
-			}
-		}
+        "devServer" : {
+            "port" : 8080,
+            "disableHostCheck" : true,
+            "proxy" : {
+                "/api" : {
+                    "target" : "http://ceshi3.dishait.cn/api/useraddresses/1",
+                    "changeOrigin" : true,
+                    "secure" : false
+                }
+            }
+        }
     }
 }
