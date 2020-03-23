@@ -7,7 +7,7 @@
 		"urlCheck": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.2",
+	"libVersion": "2.7.0",
 	"appid": "touristappid",
 	"projectname": "uni-shopping",
 	"simulatorType": "wechat",

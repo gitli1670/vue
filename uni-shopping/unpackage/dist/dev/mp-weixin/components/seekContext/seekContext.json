@@ -1,6 +1,6 @@
 {
-  "component": true,
   "usingComponents": {
     "guess-like": "/components/GuessLike/GuessLike"
-  }
+  },
+  "component": true
 }

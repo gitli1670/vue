@@ -24,55 +24,59 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.guesslike.data-v-17e48728 {
+.guesslike.data-v-3993e145 {
   width: 100%;
   height: 1860rpx;
 }
-.guesslike image.data-v-17e48728 {
+.guesslike image.data-v-3993e145 {
     width: 100%;
     height: 100%;
 }
-.guesslike .guess-like-list.data-v-17e48728 {
+.guesslike .guess-like-list.data-v-3993e145 {
     height: auto;
     display: -webkit-box;
     display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
             justify-content: space-between;
     -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
             flex-wrap: wrap;
 }
-.guesslike .guess-like-list .list-left.data-v-17e48728 {
+.guesslike .guess-like-list .list-left.data-v-3993e145 {
       width: 49%;
       height: 550rpx;
 }
-.guesslike .guess-like-list .list-left .guess-like-pic.data-v-17e48728 {
+.guesslike .guess-like-list .list-left .guess-like-pic.data-v-3993e145 {
         width: 100%;
         height: 360rpx;
 }
-.guesslike .guess-like-list .list-left .describe.data-v-17e48728, .guesslike .guess-like-list .list-left .modles.data-v-17e48728, .guesslike .guess-like-list .list-left .price.data-v-17e48728 {
+.guesslike .guess-like-list .list-left .describe.data-v-3993e145, .guesslike .guess-like-list .list-left .modles.data-v-3993e145, .guesslike .guess-like-list .list-left .price.data-v-3993e145 {
         width: 100%;
         height: 60rpx;
         line-height: 60rpx;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
 }
-.guesslike .guess-like-list .list-left .modles.data-v-17e48728 {
+.guesslike .guess-like-list .list-left .modles.data-v-3993e145 {
         font-size: 24rpx;
         color: #808080;
 }
-.guesslike .guess-like-list .list-left .price .symbol.data-v-17e48728 {
+.guesslike .guess-like-list .list-left .price .symbol.data-v-3993e145 {
         color: red;
         font-size: 25rpx;
 }
-.guesslike .guess-like-list .list-left .price .original.data-v-17e48728 {
+.guesslike .guess-like-list .list-left .price .original.data-v-3993e145 {
         color: #DC3546;
         font-size: 36rpx;
         margin-right: 10rpx;
 }
-.guesslike .guess-like-list .list-left .price .discount.data-v-17e48728 {
+.guesslike .guess-like-list .list-left .price .discount.data-v-3993e145 {
         font-size: 20rpx;
         text-decoration: line-through;
         color: #808080;

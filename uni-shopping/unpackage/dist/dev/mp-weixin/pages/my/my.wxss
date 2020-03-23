@@ -18,7 +18,7 @@ image{width: 100%;height: 100%;}
 .orders .orders_top{width: 100%;height: 100rpx;line-height: 100rpx; background-color: white;margin-bottom: 4rpx;}
 .orders .orders_top text:nth-child(1){font-weight: 800;font-size: 34rpx;color: black;float: left;margin-left: 20rpx;}
 .orders .orders_top text:nth-child(2){font-size: 30rpx;color: #555555;float: right;margin-right: 8rpx;}
-.orders_bottom{width: 100%;height: 126rpx; display: -webkit-box; display: -webkit-flex; display: flex;-webkit-justify-content: space-around;justify-content: space-around;background-color: white;padding-top: 24rpx;}
+.orders_bottom{width: 100%;height: 126rpx; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;-webkit-justify-content: space-around;-ms-flex-pack: distribute;justify-content: space-around;background-color: white;padding-top: 24rpx;}
 .order_information{width: 100rpx;height:100rpx;font-size: 30rpx;text-align: center;}
 .order_information view:nth-child(1){width: 52rpx;height: 52rpx;margin-left: 22rpx;}
 /* 手机图片: */
