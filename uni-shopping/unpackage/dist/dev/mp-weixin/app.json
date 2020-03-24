@@ -5,6 +5,12 @@
     "pages/seek/seek",
     "pages/carlist/carlist",
     "pages/sort/sort",
+    "pages/commoditydetails/commoditydetails",
+    "pages/added/added",
+    "pages/edit/edit",
+    "pages/modified-data/modified-data",
+    "pages/setting/setting",
+    "pages/site/site",
     "pages/my/my"
   ],
   "subPackages": [],
@@ -46,6 +52,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap25.json"
+  "usingComponents": {}
 }

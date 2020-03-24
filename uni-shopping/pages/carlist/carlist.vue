@@ -158,6 +158,12 @@
 				/** 
 				 * 渲染商品列表
 				 */
+				// uni.getStorage({
+				// 	key:name
+				// }).then(res=>{
+				// 	console.log(res)
+				// })
+				
 				let that = this;
 				uni.showLoading({ //渲染完成前显示
 					title: '加载ing',

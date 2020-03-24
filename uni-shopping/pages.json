@@ -6,6 +6,12 @@
 		{"path": "pages/seek/seek","style":{"navigationStyle":"custom"}},// -------------搜索
 		{"path": "pages/carlist/carlist","style":{"navigationStyle":"custom"}}, // ------购物车
 		{"path": "pages/sort/sort","style":{"navigationStyle":"custom"}}, // ------------分类
+		{"path": "pages/commoditydetails/commoditydetails","style":{"navigationStyle":"custom"}}, // ------------
+		{"path": "pages/added/added","style":{"navigationStyle":"custom"}}, // ------------
+		{"path": "pages/edit/edit","style":{"navigationStyle":"custom"}}, // ------------
+		{"path": "pages/modified-data/modified-data","style":{"navigationStyle":"custom"}}, // ------------
+		{"path": "pages/setting/setting","style":{"navigationStyle":"custom"}}, // ------------
+		{"path": "pages/site/site","style":{"navigationStyle":"custom"}}, // ------------
 		{"path": "pages/my/my","style":{"navigationStyle":"custom"}} // -----------------我的
 	],
 	"tabBar": {

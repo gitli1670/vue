@@ -1,5 +1,11 @@
 <template>
 	<view id="login">
+		<view class="content"></view>
+		<view class="return">
+			<view class="return_box">
+				<image src="../../static/img-percenter/return.png"></image>
+			</view>
+		</view>
 		<view class="passTop">
 			<view></view>
 			<view>忘记密码</view>
@@ -75,6 +81,7 @@
 					method:'POST',
 					success:(res) =>{
 						this.name = res.data.data.username
+						console.log(res)
 						if(_this.inputname==""||_this.inputpas==""){
 							uni.showModal({
 									content: '输入不能为空',
@@ -83,22 +90,19 @@
 						}else if(_this.inputname===_this.name){
 							if(_this.inputpas===_this.pass){
 								if(_this.checked==true){
+									uni.setStorage({
+										key:"name",
+										data:_this.name
+									})
 									uni.showModal({
 										content: '登录成功',
 										showCancel: false
 									}).then(()=>{
-										uni.setStorage({
-											key:"token",
-											data:res.data.data.token
-										})
-										uni.setStorage({
-											key:"name",
-											data:_this.name
-										})
 										uni.switchTab({
 											url:"../index/index"
 										})
 									})
+									
 								}else{
 									uni.showModal({
 										content: '您未同意协议',
@@ -125,10 +129,14 @@
 	}
 </script>
 
-<style>
+<style scoped>
+	image{width:100%;height:100%;}
+	.content{width:100%;height:80rpx;}
+	.return{margin-left:32rpx;}
+	.return .return_box{width:40upx;height: 40upx;}
 	.passTop{color: #555555;width: 750rpx;height: 80rpx;}
 	.passTop view:nth-child(1){float: left;display: inline-block;}
-	.passTop view:nth-child(2){float: right;display: inline-block;margin-right: 60rpx;margin-top: 30rpx;;}
+	.passTop view:nth-child(2){float: right;display: inline-block;margin-right: 60rpx;}
 	.password{width: 626rpx;padding: 64rpx;}
 	.password .passText{font-size: 60rpx;font-weight: 900;width: 626rpx;height: 210rpx;line-height: 150rpx;}
 	.password .input{font-size: 32rpx;color: #999999;}

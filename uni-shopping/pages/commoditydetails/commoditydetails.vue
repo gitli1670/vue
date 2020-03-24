@@ -1,7 +1,11 @@
 <template>
 	<view class="ztbox">
+		<view @click="back" class="fh">
+			<image src="../../static/img-carlist/back.png"></image>
+		</view>
+		
 		<view class="tatle">
-			<image :src="carlist.cover"></image>
+			<image mode="widthFix" :src="carlist.cover"></image>
 			<view class="minti">{{carlist.title}}</view>
 			<view class="mide">{{carlist.desc}}</view>
 			<view class="minjia">$3299</view>
@@ -18,9 +22,9 @@
 			</view>
 		</scroll-view>
 		<view class="shansb">
-			<view class="shanone" @click="SelectSkus(3)">
+			<view class="shanone" @click="SelectSkus(3)" >
 				<view class="shanyx">已选</view>
-				<view class="shanpez">火焰红 64G 标配</view>
+				<view class="shanpez">{{}}</view>
 				<view class="shanimg">
 					<image src="../../static/img-commoditydetails/next.png"></image>
 				</view>
@@ -111,13 +115,18 @@
 				img: {},
 				fixd: false,
 				popupWindow: null,
+				tccolor:{},
+				tcpz:{}
 			}
 		},
-		onLoad() {
+		onLoad(data) {
 			uni.request({  //商品详情
-					url: "http://ceshi3.dishait.cn/api/goods/25",
+					url: "http://ceshi3.dishait.cn/api/goods/"+data.id+"",
 					success: (res) => {
+						console.log(res)
 						this.carlist = res.data.data;
+						this.tccolor = res.data.data.goodsSkusCard[0].goodsSkusCardValue[0];//颜色
+						this.tcpz = res.data.data.goodsSkusCard[0].goodsSkusCardValue[0];//套餐
 					}
 				})
 			uni.request({  
@@ -140,6 +149,11 @@
 				 * 子组件传false 隐藏弹窗
 				 */
 				this.fixd = e;
+			},
+			back(){
+				uni.navigateBack({
+					delta:1
+				})
 			}
 		},
 		components: {
@@ -155,7 +169,23 @@
 		font-size: 28upx;
 		overflow: hidden;
 	}
-
+	
+.fh{
+	position: absolute;
+	left: 50upx;
+	top: 50upx;
+	width: 100upx;
+	height: 100upx;
+	background-color: #808080;
+	text-align: center;
+	border-radius: 50%;
+}
+.fh image{
+	position: relative;
+	top: 30upx;
+	width: 43upx;
+	height: 43upx;
+}
 	.tatle image {
 		width: 100%;
 	}

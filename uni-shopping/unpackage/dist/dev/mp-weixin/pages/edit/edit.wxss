@@ -1,0 +1,23 @@
+
+image.data-v-2f19d7d1{height:100%;width:100%;}
+.main.data-v-2f19d7d1{background-color: #EEEEEE;height: 1334rpx;}
+.content.data-v-2f19d7d1{width:100%;height:80rpx;background-color: #EEEEEE;}
+.return.data-v-2f19d7d1{margin-left:32rpx;height:50rpx;}
+.return .return_box.data-v-2f19d7d1{width:40rpx;height: 40rpx;}
+/* 删除: */
+.delete.data-v-2f19d7d1{color: #808080; width: 100%;height: 60rpx;line-height: 60rpx;background-color: white;}
+.dele.data-v-2f19d7d1{float: right;margin-right: 30rpx;}
+/* 信息; */
+.information.data-v-2f19d7d1,.site.data-v-2f19d7d1{font-size: 30rpx;margin-bottom: 20rpx;}
+.name.data-v-2f19d7d1,.phone.data-v-2f19d7d1,.region.data-v-2f19d7d1,.minute.data-v-2f19d7d1{width: 100%;height: 90rpx;line-height: 90rpx;font-size: 30rpx;color: #555555;margin-bottom: 2rpx;background-color: white;}
+input.data-v-2f19d7d1{border: 0;color: #555555;padding-top: 24rpx;padding-bottom: 10rpx;}
+.information text.data-v-2f19d7d1{float: left;margin-left:22rpx;}
+.site text.data-v-2f19d7d1{float: left;margin-left:22rpx;}
+.region_picker.data-v-2f19d7d1{float: left;width: 576rpx;height: 90rpx;}
+/* 默认地址: */
+.default.data-v-2f19d7d1{font-size: 30rpx;width: 100%;height: 90rpx;line-height: 90rpx;background-color: white;color: #555555;}
+.default_text.data-v-2f19d7d1{float: left;margin-left:22rpx;}
+.default_switch.data-v-2f19d7d1{float: right;margin-right: 32rpx;}
+/* 保存: */
+.Preservation button.data-v-2f19d7d1{width:626rpx;height: 90rpx;background-color: #ff6c22; margin-top:34rpx; color: white;font-size: 32rpx;margin-bottom: 42rpx;}
+

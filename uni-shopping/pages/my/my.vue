@@ -1,16 +1,16 @@
 <template>
 	<view class="main" id="my">
 		<!-- 个人头像背景部分： -->
-		<view class="top">
+		<view class="top" :style="{backgroundImage: 'url('+imageURL+')'}">
 			<view class="top_right">
 				<view class="top_i"><image src="../../static/img-percenter/i.png"></image> </view>
 			</view>
 			<view class="top_bottom">
 				<view class="top_head">
 					<view class="top_headimg" @click="modifiedData">
-						<!-- <image src=""></image> -->
+						<image :src="headimg"></image>
 					</view>
-					<view class="top_headtext">昵称</view>
+					<view class="top_headtext">{{name}}</view>
 				</view>
 				<view class="member">
 					<view class="member_box">
@@ -48,7 +48,7 @@
 			</view>
 		</view>
 		<!-- 手机图片： -->
-		<view class="phoneImg"></view>
+		<view class="phoneImg"><image src="../../static/img-percenter/98586c9d54b5df4.jpg"></image> </view>
 		<!-- 功能部分： -->
 		<view class="MainFunction">
 			<view class="function_box">
@@ -90,19 +90,56 @@
 	export default{
 		data() {
 			return{
-				
+                imageURL: '../../static/img-percenter/bg.jpg',
+				name:'',
+				headimg:''
 			}
 		},
 		onLoad(){
-			
+			let _this = this
+			uni.getStorage({
+				key:"name",
+				success(e){
+					_this.name = e.data
+					uni.request({
+						url:'http://ceshi3.dishait.cn/api/login',
+						data:{
+							username : 'user2',
+							password : 'zcmcss'
+						},
+						method:'POST',
+						success:(res) =>{
+							_this.headimg = res.data.data.avatar
+						}
+					})
+				},
+				fail: err => {
+				    _this.name = "未登录"
+					_this.headimg = '../../static/img-percenter/log.jpg'
+				}
+			})
 		},
 		methods:{
 			/**
 			 * @modifiedData:跳转到修改资料页面
 			 */
 			modifiedData(){
-				uni.navigateTo({
-					url:"../modified-data/modified-data"
+				let _this = this
+				uni.getStorage({
+					key:"name",
+					success(e){
+						_this.name = e.data
+						uni.navigateTo({
+							url:"../modified-data/modified-data?img="+_this.headimg+""
+						})
+					},
+					fail: err => {
+					    _this.name = "未登录"
+						console.log(_this.name)
+						uni.navigateTo({
+							url:"../login/login"
+						})
+					}
 				})
 			},
 			/**
@@ -117,16 +154,16 @@
 	}
 </script>
 
-<style>
-	.main{background-color: #F5F5F5;}
+<style scoped>
+	.main{background-color: #F5F5F5;padding-bottom: 10rpx;}
 	image{width: 100%;height: 100%;}
 	/* 顶端背景部分: */
-	.top{height: 314rpx;}
-	.top_right{height: 80rpx;width: 750rpx;}
-	.top_right .top_i{width: 60rpx;height: 60rpx;margin-right: 22rpx;margin-top: 16rpx; float: right;}
+	.top{width: 100%; height: 376rpx;}
+	.top_right{height: 96rpx;width: 750rpx;padding-top: 46rpx;}
+	.top_right .top_i{width: 60rpx;height: 60rpx;margin-right: 22rpx;margin-top: 36rpx; float: right;}
 	.top_bottom{width: 750rpx;height: 232rpx;}
 	.top_head{width: 400rpx;height: 232rpx;float: left;}
-	.top_headimg{width:160rpx;height: 160rpx;float: left;margin-top: 20rpx;margin-left: 62rpx;border-radius: 50%;background-color: #4CD964;}
+	.top_headimg{width:160rpx;height: 160rpx;float: left;margin-top: 20rpx;margin-left: 62rpx;border-radius: 50%;background-color: #4CD964;overflow: hidden;}
 	.top_headtext{float: left; height: 80rpx;color: white;margin-left: 10rpx;margin-top: 80rpx;}
 	.member{float: right;width: 350rpx; height:232rpx;}
 	.member_empty{width: 82rpx;height: 82rpx;float: right;border-top-left-radius:50%;border-bottom-left-radius: 50%;background-color: #FFCC00;margin-top:100rpx ;}
