@@ -1,5 +1,6 @@
 <template>
 	<view class="main" id="my">
+		<view class="content"></view>
 		<!-- 个人头像背景部分： -->
 		<view class="top">
 			<view class="top_right">
@@ -117,13 +118,14 @@
 	}
 </script>
 
-<style>
-	.main{background-color: #F5F5F5;}
+<style scoped>
+	.main{background-color: #F5F5F5;padding-bottom: 10rpx;}
 	image{width: 100%;height: 100%;}
+	.content{width:100%;height:80rpx;background-color: #F5F5F5;}
 	/* 顶端背景部分: */
 	.top{height: 314rpx;}
-	.top_right{height: 80rpx;width: 750rpx;}
-	.top_right .top_i{width: 60rpx;height: 60rpx;margin-right: 22rpx;margin-top: 16rpx; float: right;}
+	.top_right{height: 96rpx;width: 750rpx;}
+	.top_right .top_i{width: 60rpx;height: 60rpx;margin-right: 22rpx;margin-top: 36rpx; float: right;}
 	.top_bottom{width: 750rpx;height: 232rpx;}
 	.top_head{width: 400rpx;height: 232rpx;float: left;}
 	.top_headimg{width:160rpx;height: 160rpx;float: left;margin-top: 20rpx;margin-left: 62rpx;border-radius: 50%;background-color: #4CD964;}
