@@ -1,0 +1,34 @@
+
+.main.data-v-22cb86d1{background-color: #F5F5F5;padding-bottom: 10rpx;}
+image.data-v-22cb86d1{width: 100%;height: 100%;}
+/* 顶端背景部分: */
+.top.data-v-22cb86d1{width: 100%; height: 376rpx;}
+.top_right.data-v-22cb86d1{height: 96rpx;width: 750rpx;padding-top: 46rpx;}
+.top_right .top_i.data-v-22cb86d1{width: 60rpx;height: 60rpx;margin-right: 22rpx;margin-top: 36rpx; float: right;}
+.top_bottom.data-v-22cb86d1{width: 750rpx;height: 232rpx;}
+.top_head.data-v-22cb86d1{width: 400rpx;height: 232rpx;float: left;}
+.top_headimg.data-v-22cb86d1{width:160rpx;height: 160rpx;float: left;margin-top: 20rpx;margin-left: 62rpx;border-radius: 50%;background-color: #4CD964;overflow: hidden;}
+.top_headtext.data-v-22cb86d1{float: left; height: 80rpx;color: white;margin-left: 10rpx;margin-top: 80rpx;}
+.member.data-v-22cb86d1{float: right;width: 350rpx; height:232rpx;}
+.member_empty.data-v-22cb86d1{width: 82rpx;height: 82rpx;float: right;border-top-left-radius:50%;border-bottom-left-radius: 50%;background-color: #FFCC00;margin-top:100rpx ;}
+.member .member_box.data-v-22cb86d1{background-color: #FFCC00;width: 190rpx;height: 82rpx;line-height: 82rpx; float: right;margin-top: 100rpx;color: #CC6600 ;font-size: 32rpx;}
+.member .member_img.data-v-22cb86d1{width:40rpx;height: 40rpx;margin-top: 18rpx;margin-left: 28rpx;}
+/* 订单部分: */
+.orders.data-v-22cb86d1{width: 100%;height: 254rpx;}
+.orders .orders_top.data-v-22cb86d1{width: 100%;height: 100rpx;line-height: 100rpx; background-color: white;margin-bottom: 4rpx;}
+.orders .orders_top text.data-v-22cb86d1:nth-child(1){font-weight: 800;font-size: 34rpx;color: black;float: left;margin-left: 20rpx;}
+.orders .orders_top text.data-v-22cb86d1:nth-child(2){font-size: 30rpx;color: #555555;float: right;margin-right: 8rpx;}
+.orders_bottom.data-v-22cb86d1{width: 100%;height: 126rpx; display: -webkit-box; display: -webkit-flex; display: flex;-webkit-justify-content: space-around;justify-content: space-around;background-color: white;padding-top: 24rpx;}
+.order_information.data-v-22cb86d1{width: 100rpx;height:100rpx;font-size: 30rpx;text-align: center;}
+.order_information view.data-v-22cb86d1:nth-child(1){width: 52rpx;height: 52rpx;margin-left: 22rpx;}
+/* 手机图片: */
+.phoneImg.data-v-22cb86d1{width: 100%;height: 300rpx;background: #4CD964;margin-top: 20rpx;}
+/* 功能部分: */
+.MainFunction.data-v-22cb86d1{width: 100%;}
+.function_box.data-v-22cb86d1{width: 100%;height: 92rpx;line-height: 92rpx; background-color: white;margin-bottom: 2rpx;}
+.function_img.data-v-22cb86d1{float: left;width: 38rpx;height: 38rpx;margin-left: 40rpx;margin-top: 8rpx;}
+.function_text.data-v-22cb86d1{float: left;width: 578rpx; margin-left: 14rpx;}
+.function_more.data-v-22cb86d1{float: left;width: 40rpx;height: 40rpx;margin-top: 8rpx;}
+/* 更多设置: */
+.set.data-v-22cb86d1{margin-top: 22rpx;background-color: white;width: 100%;height: 92rpx;line-height: 92rpx;}
+

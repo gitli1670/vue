@@ -10,7 +10,7 @@
 			<view class="headPortrait">
 				<view class="datum_one">头像</view>
 				<view class="datum_img">
-					<!-- <image src=""></image> -->
+					<image :src="img"></image>
 				</view>
 			</view>
 			<view class="name">
@@ -53,17 +53,17 @@
 	export default{
 		data(){
 			return{
-				
+				img:''
 			}
 		},
-		onLoad() {
-			
+		onLoad(data) {
+			this.img = data.img
 		},
 		methods:{
 			returnClick(){
-				uni.navigateTo({
-					url:'../my/my'
-				});
+				uni.navigateBack({
+					delta:1
+				})
 			},
 		}
 	}

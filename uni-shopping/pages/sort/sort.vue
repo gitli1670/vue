@@ -60,22 +60,24 @@
 		},
 		methods: {
 			ScrollWatch(e) {
-				/** 
+				/**  
 				 * 滚动监听
 				 */
-				if(e.detail.scrollTop>3253){
+				console.log(e)
+				if(e.detail.scrollTop>3300){
 					this.SelectStyle = 5
-				}else if(e.detail.scrollTop>2663){
+				}else if(e.detail.scrollTop>2640&&e.detail.scrollTop<3300){
 					this.SelectStyle = 4
-				}else if(e.detail.scrollTop>2001){
+				}else if(e.detail.scrollTop>1980&&e.detail.scrollTop<2640){
 					this.SelectStyle = 3
-				}else if(e.detail.scrollTop>1318){
+				}else if(e.detail.scrollTop>1320&&e.detail.scrollTop<1980){
 					this.SelectStyle = 2
-				}else if(e.detail.scrollTop>660){
+				}else if(e.detail.scrollTop>660&&e.detail.scrollTop<1320){
 					this.SelectStyle = 1
 				}else{
 					this.SelectStyle = 0
 				}
+				
 			},
 			handleSelect(e){
 				this.id = 'fenr'+parseInt(e+1);
@@ -92,15 +94,17 @@
 		height: 100%;
 	}
 	.shous {
+		margin-top: 80upx;
+		margin-bottom: 80upx;
 		position: fixed;
-		height: 68upx;
+		height: 80upx;
 		width: 100%;
-		line-height: 68upx;
+		line-height: 80upx;
 		z-index: 20;
 	}
 	.shous-auto{
 		display: flex;
-		width: 97%;
+		width: 100%;
 		margin: auto;
 	}
 
@@ -117,8 +121,10 @@
 		top:8upx;
 	}
 	.tufl-font{
+		height: 80upx;
+		line-height: 80upx;
 		color: #C0C0C0;
-		font-size: 24upx;
+		font-size: 27upx;
 		display: inline-block;
 		margin-left: 80upx;
 	}
@@ -133,6 +139,7 @@
 	}
 
 	.fenl {
+		padding-top: 100upx;
 		width: 100%;
 		display: flex;
 	}
@@ -159,7 +166,7 @@
 	}
 
 	.fenri {
-		height: 1000upx;
+		height: 1100upx;
 		margin-top: 100upx;
 		width: 80%;
 	}

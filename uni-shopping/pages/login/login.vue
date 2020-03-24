@@ -90,14 +90,19 @@
 						}else if(_this.inputname===_this.name){
 							if(_this.inputpas===_this.pass){
 								if(_this.checked==true){
-									uni.showModal({
-										content: '登录成功',
-										showCancel: false
-									});
 									uni.setStorage({
 										key:"name",
 										data:_this.name
 									})
+									uni.showModal({
+										content: '登录成功',
+										showCancel: false
+									}).then(()=>{
+										uni.switchTab({
+											url:"../index/index"
+										})
+									})
+									
 								}else{
 									uni.showModal({
 										content: '您未同意协议',

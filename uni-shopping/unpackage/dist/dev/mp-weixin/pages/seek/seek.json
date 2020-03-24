@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "seek-top": "/components/seekTop/seekTop",
+    "seek-body": "/components/seekBody/seekBody",
+    "seek-context": "/components/seekContext/seekContext",
+    "seek-sele": "/components/seekSele/seekSele"
+  }
+}

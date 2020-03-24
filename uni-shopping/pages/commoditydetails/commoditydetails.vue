@@ -1,11 +1,11 @@
 <template>
 	<view class="ztbox">
-		<view class="fh">
-			<image src="../../static/img-commoditydetails/next.png"></image>
+		<view @click="back" class="fh">
+			<image src="../../static/img-carlist/back.png"></image>
 		</view>
 		
 		<view class="tatle">
-			<image :src="carlist.cover"></image>
+			<image mode="widthFix" :src="carlist.cover"></image>
 			<view class="minti">{{carlist.title}}</view>
 			<view class="mide">{{carlist.desc}}</view>
 			<view class="minjia">$3299</view>
@@ -119,9 +119,9 @@
 				tcpz:{}
 			}
 		},
-		onLoad() {
+		onLoad(data) {
 			uni.request({  //商品详情
-					url: "http://ceshi3.dishait.cn/api/goods/25",
+					url: "http://ceshi3.dishait.cn/api/goods/"+data.id+"",
 					success: (res) => {
 						console.log(res)
 						this.carlist = res.data.data;
@@ -149,6 +149,11 @@
 				 * 子组件传false 隐藏弹窗
 				 */
 				this.fixd = e;
+			},
+			back(){
+				uni.navigateBack({
+					delta:1
+				})
 			}
 		},
 		components: {
@@ -166,8 +171,8 @@
 	}
 	
 .fh{
-	position: fixed;
-	left: 0upx;
+	position: absolute;
+	left: 50upx;
 	top: 50upx;
 	width: 100upx;
 	height: 100upx;

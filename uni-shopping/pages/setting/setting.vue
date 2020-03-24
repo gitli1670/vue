@@ -90,9 +90,9 @@
 				})
 			},
 			returnClick(){
-				uni.navigateTo({
-					url:'../my/my'
-				});
+				uni.navigateBack({
+					delta:1
+				})
 			}
 			
 		}

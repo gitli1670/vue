@@ -1,0 +1,15 @@
+
+.main.data-v-2f355122{background-color:#eaeaea;height: 1334rpx;}
+image.data-v-2f355122{width: 100%;height: 100%;}
+.content.data-v-2f355122{width:100%;height:80rpx;background-color:#eaeaea;}
+.return.data-v-2f355122{margin-left:32rpx;}
+.return .return_box.data-v-2f355122{width:40rpx;height: 40rpx;}
+/* 个人资料: */
+.datum.data-v-2f355122{width: 100%;background-color: #eaeaea;padding-top: 20rpx;font-size: 32rpx;font-weight: 550;}
+.headPortrait.data-v-2f355122{width: 100%;height: 150rpx;line-height:150rpx; margin-bottom: 2rpx;background-color: white;}
+.datum_one.data-v-2f355122{width: 300rpx;float: left;margin-left: 32rpx;}
+.datum_two.data-v-2f355122{float: right;width: 42rpx;height: 42rpx;margin-right: 32rpx;}
+.datum_img.data-v-2f355122{float: right;width: 100rpx;height: 100rpx;border: 2rpx solid #EEEEEE;margin-right: 32rpx;border-radius: 50%;margin-top: 18rpx;}
+.name.data-v-2f355122,.sex.data-v-2f355122,.birthday.data-v-2f355122,.changePassword.data-v-2f355122,.encrypted.data-v-2f355122{background-color: white;width: 100%;height: 100rpx;line-height: 100rpx; margin-bottom: 2rpx;}
+.privacy.data-v-2f355122{margin-top: 20rpx;font-size: 32rpx;font-weight: 550;}
+

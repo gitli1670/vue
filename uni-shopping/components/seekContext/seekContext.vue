@@ -92,6 +92,9 @@
 				this.$emit('seleOne')
 			},
 			look(index){
+				uni.navigateTo({
+					url:"../../pages/commoditydetails/commoditydetails?id="+this.data[index].id+""
+				})
 				// 添加商品
 				// uni.getStorage({
 				// 	key:'token'

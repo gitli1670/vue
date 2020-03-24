@@ -1,0 +1,17 @@
+
+.main.data-v-3f0405f1{}
+image.data-v-3f0405f1{width: 100%;height: 100%;}
+.content.data-v-3f0405f1{width:100%;height:80rpx;background-color:white;}
+.return.data-v-3f0405f1{width:100%; height:120rpx;position: fixed;z-index: 2;background-color: white;}
+.return .return_box.data-v-3f0405f1{margin-left:32rpx;width:40rpx;height: 40rpx;}
+.null.data-v-3f0405f1{width:100%;height:128rpx;}
+/* 增加地址: */
+.add.data-v-3f0405f1{float: right;width: 50rpx;height: 50rpx;margin-right: 32rpx;}
+/* 地址列表: */
+.scroll.data-v-3f0405f1{height: 1122rpx;}
+.AddressList.data-v-3f0405f1{width: 100%;height: 180rpx;border-bottom: 2rpx #EEEEEE solid;padding-top: 30rpx;}
+.information.data-v-3f0405f1{float: left;width: 660rpx;height: 180rpx;font-size: 30rpx;}
+.information view.data-v-3f0405f1{text-indent: 1em;margin-bottom: 10rpx;}
+.information view.data-v-3f0405f1:nth-child(1){font-size: 32rpx;font-weight: 550;}
+.GetInto.data-v-3f0405f1{float: right;width: 50rpx;height: 50rpx;margin-right: 32rpx;margin-top: 50rpx;}
+
