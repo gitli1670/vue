@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p id="myp"></p>
+		</div>
+	</body>
+	<script>
+		let obj = {};
+		//把值绑定到目标中，defineProperty，第一个参数是对象，第二个参数是绑定的对象属性，第三个参数是get和set操作
+		Object.defineProperty(obj,"name",{
+			//获取值
+			get(){
+				return document.querySelector("#myp").innerHTML;
+			},
+			set(val){
+				document.querySelector("#myp").innerHTML = val;
+			}
+		})
+		obj.name = "张三";
+		console.log(obj.name) 
+	</script>
+	<!--
+	    	作者：offline
+	    	时间：2020-03-25
+	    	描述：vue源码解析
+	    	1.vue底层源码
+	    	工作机制
+	    	---在new vue()会初始化，初始化data，watch,生命周期，props,methods,data
+	    	数据的响应式是通过object.defineproperty的setter和getter来实现响应式和依赖收集的
+	    	初始化之后通过$mount把组件，数据之类的挂载在目标中（选择器），然后$mount会启动编译器（compile---把模板，html进行扫描）
+	    	然后会通过render函数渲染上去（会生成虚拟dom）
+	    	compile做两件事，一是渲染，二是依赖收集  watcher（观察者）来去修改节点
+	    	1.阶段一 重点
+	    	parse   使用正则表达式来解析v指令（非html代码），然后生成AST
+	    	2.阶段二
+	    	optimize  做一些和静态节点，用来做以后的优化问题
+	    	3.阶段三  重点
+	    	generate   把第一部分生成的AST数转化渲染成render函数
+	    	响应式原理
+	    	---
+	    	依赖收集
+	    	---
+	    	编译compile
+	    	---
+	    	实现mvvm框架
+	    -->
+</html>
